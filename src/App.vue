@@ -1,15 +1,16 @@
 <template>
   <div id="app">
-    <el-input v-model="text"></el-input>
-    <HelloWorld />
+    <EditorComp @editor-text="getEditorText" />
+
+    <div v-html="text"></div>
   </div>
 </template>
 
 <script>
-import HelloWorld from "@components/HelloWorld.vue";
+import EditorComp from "@components/Editor";
 export default {
   components: {
-    HelloWorld,
+    EditorComp
   },
   data() {
     return {
@@ -20,6 +21,12 @@ export default {
   mounted() {
     console.log($auth.getUserToken());
   },
+
+  methods: {
+    getEditorText(value) {
+      this.text = value
+    }
+  }
 };
 </script>
 

@@ -40,6 +40,14 @@ class Validate {
     const regex = /^[a-z0-9A-Z]+$/
     return regex.test(value)
   }
+
+  /*
+   * @description HTML元素
+   */
+  validateHtml(value) {
+    const regex = /<[^>]+>/g
+    return regex.test(value)
+  }
 }
 
 export default new Validate()
