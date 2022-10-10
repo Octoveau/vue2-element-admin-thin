@@ -1,17 +1,26 @@
 <template>
   <div id="app">
     <el-input v-model="text"></el-input>
+    <HelloWorld />
   </div>
 </template>
 
 <script>
-  export default {
-    data () {
-      return {
-        text: ''
-      }
-    }
-  }
+import HelloWorld from "@components/HelloWorld.vue";
+export default {
+  components: {
+    HelloWorld,
+  },
+  data() {
+    return {
+      text: "",
+    };
+  },
+
+  mounted() {
+    console.log($auth.getUserToken());
+  },
+};
 </script>
 
 <style lang="less">
