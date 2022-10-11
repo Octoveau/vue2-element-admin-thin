@@ -1,5 +1,5 @@
 <template>
-  <el-menu :default-active="defaultActive" :unique-opened="true" :router="true">
+  <el-menu default-active="首页" :unique-opened="true" :router="false">
     <menu-item :menuList="menu"></menu-item>
   </el-menu>
 </template>
@@ -24,7 +24,7 @@ export default {
       if (meta.activeMenu) {
         return meta.activeMenu;
       }
-      return path;
+      return "首页";
     },
   },
 };

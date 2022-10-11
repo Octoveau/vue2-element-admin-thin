@@ -7,20 +7,21 @@
       <el-aside width="200px">
         <aside-comp />
       </el-aside>
-      <!-- <el-content>
+      <el-main>
         <content-comp />
-      </el-content> -->
+      </el-main>
     </el-container>
   </el-container>
 </template>
 
 <script>
-import HeaderComp from "./header/header.vue";
-// import ContentComp from "./content";
-import AsideComp from "./aside/aside.vue";
+import HeaderComp from "./header";
+import ContentComp from "./content";
+import AsideComp from "./aside";
 export default {
   components: {
     HeaderComp,
+    ContentComp,
     AsideComp,
   },
   data() {

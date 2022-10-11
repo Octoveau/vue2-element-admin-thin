@@ -16,7 +16,7 @@
       <el-menu-item
         v-else
         :index="item.menu_url ? item.menu_url : ''"
-        :key="index"
+        :key="index + 1"
       >
         <i :class="item.menu_icon ? item.menu_icon : 'no-icon'" />
         <span slot="title">{{ item.menu_name }}</span>
