@@ -1,34 +1,20 @@
 <template>
   <div id="app">
-    <!-- <EditorComp @editor-text="getEditorText" />
-
-    <div v-html="text"></div> -->
-    <p>测试</p>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import EditorComp from "@components/Editor";
 export default {
-  components: {
-    EditorComp,
-  },
   data() {
-    return {
-      text: "",
-    };
-  },
-
-  mounted() {
-    console.log($auth.getUserToken());
-  },
-
-  methods: {
-    getEditorText(value) {
-      this.text = value;
-    },
+    return {};
   },
 };
 </script>
 
-<style lang="less"></style>
+<style lang="less">
+#app {
+  width: 100%;
+  height: 100%;
+}
+</style>
