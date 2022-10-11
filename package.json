@@ -9,7 +9,7 @@
     "dll": "webpack --config ./webpack.dll.js"
   },
   "dependencies": {
-    "add-asset-html-webpack-plugin": "^5.0.2",
+    "add-asset-html-webpack-plugin": "4.0.1",
     "axios": "^1.1.2",
     "core-js": "^3.6.5",
     "element-ui": "^2.15.10",
@@ -34,35 +34,7 @@
     "eslint-plugin-vue": "^6.2.2",
     "less": "^3.0.4",
     "less-loader": "^5.0.0",
-    "unplugin-auto-import": "^0.11.2",
     "unplugin-vue-components": "^0.22.8",
     "vue-template-compiler": "^2.6.11"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ],
-    "parserOptions": {
-      "parser": "babel-eslint"
-    },
-    "rules": {},
-    "globals": {
-      "_": true,
-      "$api": true,
-      "$auth": true,
-      "$util": true,
-      "$validate": true,
-      "$is": true
-    }
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ]
+  }
 }

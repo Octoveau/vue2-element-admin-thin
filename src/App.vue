@@ -1,8 +1,9 @@
 <template>
   <div id="app">
-    <EditorComp @editor-text="getEditorText" />
+    <!-- <EditorComp @editor-text="getEditorText" />
 
-    <div v-html="text"></div>
+    <div v-html="text"></div> -->
+    <p>测试</p>
   </div>
 </template>
 
@@ -10,7 +11,7 @@
 import EditorComp from "@components/Editor";
 export default {
   components: {
-    EditorComp
+    EditorComp,
   },
   data() {
     return {
@@ -24,11 +25,10 @@ export default {
 
   methods: {
     getEditorText(value) {
-      this.text = value
-    }
-  }
+      this.text = value;
+    },
+  },
 };
 </script>
 
-<style lang="less">
-</style>
+<style lang="less"></style>
