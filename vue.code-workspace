@@ -20,7 +20,7 @@
     }, //保存时候自动修复问题(只是一些简单修复，具体看官网)
     "editor.formatOnPaste": true, //复制时候自动格式化
     "breadcrumbs.enabled": true, //内容上方的面包屑
-    "workbench.iconTheme": "vscode-icons", //文件图标主题
+    "workbench.iconTheme": "material-icon-theme", //文件图标主题
     "javascript.format.insertSpaceBeforeFunctionParenthesis": true, //编写方法时候在括号之间加上空格
 
     //eslint配置
