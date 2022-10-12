@@ -3,7 +3,7 @@
     <el-row>
       <el-col :span="6">
         <div class="logo-title">
-          <span>Api-Mocker接口统一管理平台</span>
+          <span>vue2-admin-template开源模板</span>
         </div>
       </el-col>
       <el-col :span="12" />

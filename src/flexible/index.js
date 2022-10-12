@@ -11,6 +11,7 @@
   if (metaEl) {
     var match = metaEl
       .getAttribute("content")
+      // eslint-disable-next-line no-useless-escape
       .match(/initial\-scale=([\d\.]+)/);
     if (match) {
       scale = parseFloat(match[1]);
@@ -19,7 +20,9 @@
   } else if (flexibleEl) {
     var content = flexibleEl.getAttribute("content");
     if (content) {
+      // eslint-disable-next-line no-useless-escape
       var initialDpr = content.match(/initial\-dpr=([\d\.]+)/);
+      // eslint-disable-next-line no-useless-escape
       var maximumDpr = content.match(/maximum\-dpr=([\d\.]+)/);
       if (initialDpr) {
         dpr = parseFloat(initialDpr[1]);
