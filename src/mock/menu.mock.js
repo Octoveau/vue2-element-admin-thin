@@ -1,5 +1,10 @@
 export const menuList = [
   {
+    menu_name: "DashBoard",
+    menu_url: "/dashboard",
+    menu_icon: "el-icon-s-home",
+  },
+  {
     menu_name: "首页",
     menu_url: "/index",
     menu_icon: "el-icon-s-home",
