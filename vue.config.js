@@ -1,5 +1,5 @@
-const Components = require("unplugin-vue-components/webpack");
-const { ElementUiResolver } = require("unplugin-vue-components/resolvers");
+// const Components = require("unplugin-vue-components/webpack");
+// const { ElementUiResolver } = require("unplugin-vue-components/resolvers");
 
 const path = require("path");
 const ProvidePlugin = require("webpack").ProvidePlugin;
@@ -58,9 +58,9 @@ module.exports = {
     },
     plugins: [
       //webpack下，按需引入elementui组件
-      Components({
-        resolvers: [ElementUiResolver()],
-      }),
+      // Components({
+      //   resolvers: [ElementUiResolver()],
+      // }),
       new ProvidePlugin({
         _: "lodash",
         $is: [path.resolve(__dirname, "./src/utils/is.js"), "default"],

@@ -3,6 +3,7 @@
     :default-active="defaultActive"
     :unique-opened="true"
     :router="true"
+    popper-append-to-body
     background-color="#304156"
     text-color="#bfcbd9"
     active-text-color="#409eff"

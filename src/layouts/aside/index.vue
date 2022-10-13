@@ -30,6 +30,5 @@ export default {
 <style lang="less">
 .aside-container {
   height: 100%;
-  text-align: left;
 }
 </style>
