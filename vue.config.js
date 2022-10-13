@@ -57,6 +57,9 @@ module.exports = {
       },
     },
     plugins: [
+      // 引入DLL
+      ...addAssetsPluginArray,
+      ...dllReferencePluginArray,
       //webpack下，按需引入elementui组件
       // Components({
       //   resolvers: [ElementUiResolver()],
