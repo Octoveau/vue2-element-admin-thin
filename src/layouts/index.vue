@@ -36,26 +36,4 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-.el-container {
-  height: 100%;
-}
-
-.el-header {
-  color: #333;
-  text-align: center;
-  line-height: 60px;
-}
-
-.el-aside {
-  color: #333;
-  text-align: center;
-  line-height: 200px;
-}
-
-.el-main {
-  background-color: #e9eef3;
-  color: #333;
-  text-align: center;
-  line-height: 160px;
-}
 </style>

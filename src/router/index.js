@@ -1,8 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import RouterGuards from "./config/router.guards";
-import NProgress from "nprogress";
-import "nprogress/nprogress.css";
 
 Vue.use(VueRouter);
 
@@ -18,9 +16,17 @@ const routes = [
         name: "DashBoard",
         component: () => import("@/views/DashBoard/index.vue"),
         meta: {
-          name: "DashBoard",
+          title: "DashBoard",
         },
       },
+      {
+        path: '/home',
+        name: 'Home',
+        component: () => import("@/views/Home"),
+        meta: {
+          title: '首页'
+        }
+      }
     ],
   },
   {

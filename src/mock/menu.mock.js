@@ -6,7 +6,7 @@ export const menuList = [
   },
   {
     menu_name: "首页",
-    menu_url: "/index",
+    menu_url: "/home",
     menu_icon: "el-icon-s-home",
   },
   {
@@ -41,21 +41,6 @@ export const menuList = [
       {
         menu_name: "菜单2",
         menu_url: "",
-      },
-    ],
-  },
-  {
-    menu_name: "地图模块",
-    menu_url: "",
-    menu_icon: "iconfont yl-menu-icon icon-ditu",
-    children: [
-      {
-        menu_name: "百度地图",
-        menu_url: "/group/baidu",
-      },
-      {
-        menu_name: "高德地图",
-        menu_url: "/group/gaode",
       },
     ],
   },

@@ -13,7 +13,7 @@ class RouterGuards {
   }
 
   beforeEach() {
-    this.router.beforeEach((to, from, next) => {
+    return this.router.beforeEach((to, from, next) => {
       NProgress.start();
       if (to.path === "/") {
         next({
@@ -26,13 +26,13 @@ class RouterGuards {
   }
 
   onError() {
-    this.router.onError(() => {
+    return this.router.onError(() => {
       NProgress.done();
     });
   }
 
   afterEach() {
-    this.router.afterEach(() => {
+    return this.router.afterEach(() => {
       NProgress.done();
     });
   }

@@ -27,9 +27,9 @@ export default {
     },
 
     defaultActive() {
-      const { meta, path } = this.$route;
-      if (meta.activeMenu) {
-        return meta.activeMenu;
+      const { path } = this.$route;
+      if (path) {
+        return path;
       }
       return "DashBoard";
     },
