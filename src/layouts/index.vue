@@ -4,7 +4,7 @@
       <header-comp />
     </el-header>
     <el-container>
-      <el-aside width="240px">
+      <el-aside width="2.5rem">
         <aside-comp />
       </el-aside>
       <el-main>
@@ -36,4 +36,10 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+::v-deep .el-header {
+  height: 0.6rem !important;
+  line-height: 0.6rem !important;
+  background-color: #001529;
+  border: 0;
+}
 </style>

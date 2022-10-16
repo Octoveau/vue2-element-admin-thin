@@ -9,8 +9,8 @@
       <el-col :span="12" />
       <el-col :span="6">
         <div class="header-logout">
-          <img src="../../assets/images/avator.png" alt="" width="40" />
-          <div class="dropdown-container">
+          <svg-icon icon-class="user" style="color: #fff" />
+          <div>
             <el-dropdown>
               <span class="el-dropdown-link">
                 <span>{{ userName }}</span>
@@ -36,7 +36,7 @@
 export default {
   data() {
     return {
-      userName: "superAdmin",
+      userName: "Admin",
     };
   },
 
@@ -60,21 +60,21 @@ export default {
   width: 100%;
   .logo-title {
     text-align: left;
-    color: #000000;
+    color: #fff;
     font-weight: bold;
     font-size: 0.27rem;
   }
 
   .header-logout {
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: right;
   }
 
   .el-dropdown-link {
+    margin-left: 0.2rem;
     cursor: pointer;
-    color: #409eff;
+    color: #fff;
   }
 
   .el-col {
@@ -83,6 +83,6 @@ export default {
 }
 
 .el-dropdown-menu {
-  top: 40px !important;
+  top: 0.5rem !important;
 }
 </style>
