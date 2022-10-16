@@ -1,6 +1,6 @@
 <template>
   <div class="header-container">
-    <el-row>
+    <el-row style="height: 100%">
       <el-col :span="6">
         <div class="logo-title">
           <span>vue2-admin-template开源模板</span>
@@ -58,6 +58,7 @@ export default {
 <style lang="less" scoped>
 .header-container {
   width: 100%;
+  height: 100%;
   .logo-title {
     text-align: left;
     color: #000000;
