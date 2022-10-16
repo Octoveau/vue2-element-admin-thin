@@ -14,7 +14,7 @@
           label-position="left"
         >
           <div class="title-container">
-            <h3 class="title">Vue2 Admin Template 登录界面</h3>
+            <h3 class="title">Vue2 Template Portal 登录界面</h3>
           </div>
 
           <el-form-item prop="username">
@@ -23,7 +23,7 @@
             </span>
             <el-input
               ref="username"
-              v-model="loginForm.username"
+              v-model.trim="loginForm.username"
               placeholder="Username"
               name="username"
               type="text"
@@ -32,48 +32,39 @@
             />
           </el-form-item>
 
-          <el-tooltip
-            v-model="capsTooltip"
-            content="Caps lock is On"
-            placement="right"
-            manual
-          >
-            <el-form-item prop="password">
-              <span class="svg-container">
-                <svg-icon icon-class="password" />
-              </span>
-              <el-input
-                :key="passwordType"
-                ref="password"
-                v-model="loginForm.password"
-                :type="passwordType"
-                placeholder="Password"
-                name="password"
-                tabindex="2"
-                autocomplete="on"
-                @keyup.native="checkCapslock"
-                @blur="capsTooltip = false"
-                @keyup.enter.native="handleLogin"
+          <el-form-item prop="password">
+            <span class="svg-container">
+              <svg-icon icon-class="password" />
+            </span>
+            <el-input
+              :key="passwordType"
+              ref="password"
+              v-model.trim="loginForm.password"
+              :type="passwordType"
+              placeholder="Password"
+              name="password"
+              tabindex="2"
+              autocomplete="on"
+              @keyup.enter.native="handleLogin"
+            />
+            <span class="show-pwd" @click="showPwd">
+              <svg-icon
+                :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'"
               />
-              <span class="show-pwd" @click="showPwd">
-                <svg-icon
-                  :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'"
-                />
-              </span>
-            </el-form-item>
-          </el-tooltip>
+            </span>
+          </el-form-item>
 
           <el-button
             :loading="loading"
             type="primary"
-            style="width: 100%; margin-bottom: 30px"
+            style="width: 100%; margin-bottom: 0.2rem"
             @click.native.prevent="handleLogin"
             >登录</el-button
           >
 
           <div style="position: relative">
             <div class="tips">
-              <span style="margin-right: 18px">Username : admin</span>
+              <span style="margin-right: 0.2rem">Username : admin</span>
               <span>Password : admin</span>
             </div>
           </div>
@@ -85,51 +76,37 @@
 
 <script>
 import logo from "@/assets/images/pic1.png";
+import authStorage from "@/utils/auth";
 export default {
   name: "Login",
   data() {
     return {
+      redirectPath: "",
+      timer: null,
       logo,
       loginForm: {
         username: "admin",
         password: "admin",
       },
       loginRules: {
-        username: [{ required: true, trigger: "blur" }],
-        password: [{ required: true, trigger: "blur" }],
+        username: [
+          { required: true, message: "请输入用户名", trigger: "blur" },
+        ],
+        password: [
+          { required: true, message: "请输入用户密码", trigger: "blur" },
+        ],
       },
       passwordType: "password",
-      capsTooltip: false,
       loading: false,
-      showDialog: false,
-      redirect: undefined,
-      otherQuery: {},
     };
   },
-  watch: {
-    $route: {
-      handler: function (route) {
-        const query = route.query;
-        if (query) {
-          this.redirect = query.redirect;
-          this.otherQuery = this.getOtherQuery(query);
-        }
-      },
-      immediate: true,
-    },
+  created() {
+    this.redirectPath = this.$route.query?.redirect || "";
   },
-  mounted() {
-    if (this.loginForm.username === "") {
-      this.$refs.username.focus();
-    } else if (this.loginForm.password === "") {
-      this.$refs.password.focus();
-    }
+  beforeDestroy() {
+    clearTimeout(this.timer);
   },
   methods: {
-    checkCapslock(e) {
-      const { key } = e;
-      this.capsTooltip = key && key.length === 1 && key >= "A" && key <= "Z";
-    },
     showPwd() {
       if (this.passwordType === "password") {
         this.passwordType = "";
@@ -141,34 +118,32 @@ export default {
       });
     },
     handleLogin() {
+      this.loading = true;
       this.$refs.loginForm.validate((valid) => {
         if (valid) {
-          this.loading = true;
-          this.$store
-            .dispatch("user/login", this.loginForm)
-            .then(() => {
-              this.$router.push({
-                path: this.redirect || "/",
-                query: this.otherQuery,
-              });
-              this.loading = false;
-            })
-            .catch(() => {
-              this.loading = false;
-            });
-        } else {
-          console.log("error submit!!");
-          return false;
+          //模拟延迟请求
+          this.timer = setTimeout(() => {
+            if (
+              this.loginForm.username === "admin" &&
+              this.loginForm.password === "admin"
+            ) {
+              authStorage.setUserInfo(this.loginForm);
+              //进行跳转
+              if (this.redirectPath) {
+                this.$message.success("登录成功");
+                this.$router.push(this.redirectPath);
+              } else {
+                this.$router.push({
+                  name: "DashBoard",
+                });
+              }
+            } else {
+              this.$message.warning("请输入正确的账号或者密码");
+            }
+            this.loading = false;
+          }, 2000);
         }
       });
-    },
-    getOtherQuery(query) {
-      return Object.keys(query).reduce((acc, cur) => {
-        if (cur !== "redirect") {
-          acc[cur] = query[cur];
-        }
-        return acc;
-      }, {});
     },
   },
 };
@@ -179,21 +154,21 @@ export default {
 .login-container {
   .el-input {
     display: inline-block;
-    height: 47px;
-    width: 85%;
+    height: 0.5rem;
+    width: 2.5rem;
 
     input {
       background: transparent;
       border: 0px;
       -webkit-appearance: none;
       border-radius: 0px;
-      padding: 12px 5px 12px 15px;
+      padding: 0.15rem 0.0625rem 0.15rem 0.1875rem;
       color: #fff;
-      height: 47px;
+      height: 0.5rem;
       caret-color: #fff;
 
       &:-webkit-autofill {
-        box-shadow: 0 0 0px 1000px #fff inset !important;
+        box-shadow: 0 0 0px 12.5rem #fff inset !important;
         -webkit-text-fill-color: #fff !important;
       }
     }
@@ -227,33 +202,33 @@ export default {
     .div-image {
       -webkit-clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
       background-color: rgba(255, 255, 255, 0.9);
-      padding: 32px;
-      padding-right: 80px;
+      padding: 0.4rem;
+      padding-right: 1rem;
       .image {
-        width: 600px;
+        width: 6rem;
       }
     }
     .div-form {
-      margin-left: -170px;
-      padding-left: 170px;
+      margin-left: -2.125rem;
+      padding-left: 2.125rem;
       background-color: rgba(34, 34, 34, 0.9);
       .login-form {
-        padding: 80px 30px;
+        padding: 1rem 0.375rem;
         position: relative;
-        width: 520px;
+        width: 5rem;
         max-width: 100%;
         margin: 0 auto;
         overflow: hidden;
       }
 
       .tips {
-        font-size: 14px;
+        font-size: 0.175rem;
         color: #fff;
-        margin-bottom: 10px;
+        margin-bottom: 0.1rem;
 
         span {
           &:first-of-type {
-            margin-right: 16px;
+            margin-right: 0.2rem;
           }
         }
       }
@@ -261,7 +236,7 @@ export default {
         padding: 6px 5px 6px 15px;
         color: rgb(83, 81, 81);
         vertical-align: middle;
-        width: 30px;
+        width: 0.2rem;
         display: inline-block;
       }
 
@@ -269,9 +244,9 @@ export default {
         position: relative;
 
         .title {
-          font-size: 26px;
+          font-size: 0.325rem;
           color: #fff;
-          margin: 0px auto 40px auto;
+          margin: 0px auto 0.5rem auto;
           text-align: center;
           font-weight: bold;
         }
@@ -279,18 +254,12 @@ export default {
 
       .show-pwd {
         position: absolute;
-        right: 10px;
-        top: 7px;
-        font-size: 16px;
+        right: 0.125rem;
+        top: 0.0875rem;
+        font-size: 0.2rem;
         color: #fff;
         cursor: pointer;
         user-select: none;
-      }
-
-      .thirdparty-button {
-        position: absolute;
-        right: 0;
-        bottom: 6px;
       }
     }
   }

@@ -1,49 +1,50 @@
-import storage from './storage'
+import storage from "./storage";
 
-const USERINFO_KEY = 'USER_INFO'
+const USERINFO_KEY = "user_info";
 
 class Auth {
   #userInfo = ((e) => {
+    console.log("e", e);
     if (!e) {
-      return {}
+      return null;
     }
     try {
-      return JSON.parse(e)
+      return JSON.parse(e);
     } catch (err) {
-      storage.setStorage(USERINFO_KEY, {})
-      return {}
+      storage.setStorage(USERINFO_KEY, null);
+      return null;
     }
-  })(storage.getStorage(USERINFO_KEY))
+  })(storage.getStorage(USERINFO_KEY));
 
   /*
    * @description 存储用户信息
    */
   setUserInfo(value) {
-    this.#userInfo = value
-    storage.setStorage(USERINFO_KEY, value)
+    this.#userInfo = value;
+    storage.setStorage(USERINFO_KEY, value);
   }
 
   /*
    * @description 获取用户Token
    */
   getUserToken() {
-    return this.#userInfo?.token
+    return this.#userInfo?.token;
   }
 
   /*
    * @description 获取用户信息
    */
   getUserInfo() {
-    return this.#userInfo && this.#userInfo
+    return storage.getStorage(USERINFO_KEY);
   }
 
   /*
    * @description 删除用户信息
    */
   removeUserInfo() {
-    this.#userInfo = {}
-    this.removeUserInfo(USERINFO_KEY)
+    this.#userInfo = null;
+    storage.removeStorage(USERINFO_KEY);
   }
 }
 
-export default new Auth()
+export default new Auth();

@@ -47,7 +47,11 @@ export default {
   methods: {
     handleJumpToPersonal() {},
 
-    handleLogout() {},
+    handleLogout() {
+      this.$router.push({
+        name: "Logout",
+      });
+    },
   },
 };
 </script>
