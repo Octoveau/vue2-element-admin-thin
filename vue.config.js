@@ -1,6 +1,5 @@
 // const Components = require("unplugin-vue-components/webpack");
 // const { ElementUiResolver } = require("unplugin-vue-components/resolvers");
-
 const path = require("path");
 const ProvidePlugin = require("webpack").ProvidePlugin;
 const DllReferencePlugin = require("webpack").DllReferencePlugin;
@@ -26,10 +25,6 @@ files.forEach((item) => {
       new AddAssetHtmlPlugin({
         // dll文件位置
         filepath: path.resolve(__dirname, `./dll/${item}`),
-        // dll 引用路径，请使用 绝对路径！！！
-        publicPath: "/dll",
-        // dll最终输出的目录
-        outputPath: "./dll",
       })
     );
   }
@@ -60,10 +55,6 @@ module.exports = {
       // 引入DLL
       ...addAssetsPluginArray,
       ...dllReferencePluginArray,
-      //webpack下，按需引入elementui组件
-      // Components({
-      //   resolvers: [ElementUiResolver()],
-      // }),
       new ProvidePlugin({
         _: "lodash",
         $is: [path.resolve(__dirname, "./src/utils/is.js"), "default"],
