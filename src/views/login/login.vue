@@ -75,7 +75,7 @@
 </template>
 
 <script>
-import logo from "@/assets/images/pic1.png";
+import logo from "@/assets/images/pic3.png";
 import authStorage from "@/utils/auth";
 export default {
   name: "Login",
@@ -194,6 +194,7 @@ export default {
   background-size: 100% 100%;
   overflow: hidden;
   .section {
+    box-shadow: 5px 5px 10px #100f0f;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -201,8 +202,8 @@ export default {
     display: flex;
     .div-image {
       -webkit-clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
-      background-color: rgba(255, 255, 255, 0.9);
-      padding: 0.4rem;
+      background-color: rgba(255, 255, 255);
+      padding: 0.2rem;
       padding-right: 1rem;
       .image {
         width: 6rem;
@@ -211,7 +212,7 @@ export default {
     .div-form {
       margin-left: -2.125rem;
       padding-left: 2.125rem;
-      background-color: rgba(34, 34, 34, 0.9);
+      background-color: rgba(34, 34, 34, 0.8);
       .login-form {
         padding: 1rem 0.375rem;
         position: relative;
