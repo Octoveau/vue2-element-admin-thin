@@ -27,7 +27,7 @@ export const editorMenus = [
   'table', // 表格
   'code', // 插入代码
   'undo', // 撤销
-  'redo' // 重复
+  'redo', // 重复
 ]
 
 // 颜色配置
@@ -41,14 +41,8 @@ export const editorColors = [
   '#7b5ba1',
   '#46acc8',
   '#f9963b',
-  '#ffffff'
+  '#ffffff',
 ]
 
 // 字体配置
-export const editorFonts = [
-  '宋体',
-  '微软雅黑',
-  'Arial',
-  'Tahoma',
-  'Verdana'
-]
+export const editorFonts = ['宋体', '微软雅黑', 'Arial', 'Tahoma', 'Verdana']

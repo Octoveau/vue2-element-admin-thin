@@ -6,6 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
+    "eslint": "eslint --fix --ext .js,.vue src",
     "dll": "webpack --config ./webpack.dll.js"
   },
   "dependencies": {
@@ -33,6 +34,12 @@
     "@vue/cli-service": "~4.5.17",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^7.0.0",
+    "eslint-import-resolver-webpack": "^0.13.2",
+    "eslint-plugin-html": "^7.1.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^3.4.1",
     "eslint-plugin-vue": "^6.2.2",
     "less": "^3.0.4",
     "less-loader": "^5.0.0",

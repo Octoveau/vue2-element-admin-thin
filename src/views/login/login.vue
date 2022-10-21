@@ -48,9 +48,7 @@
               @keyup.enter.native="handleLogin"
             />
             <span class="show-pwd" @click="showPwd">
-              <svg-icon
-                :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'"
-              />
+              <svg-icon :icon-class="passwordType === 'password' ? 'eye' : 'eye-open'" />
             </span>
           </el-form-item>
 
@@ -75,78 +73,72 @@
 </template>
 
 <script>
-import logo from "@/assets/images/pic3.png";
-import authStorage from "@/utils/auth";
+import logo from '@/assets/images/pic3.png'
+import authStorage from '@/utils/auth'
+
 export default {
-  name: "Login",
+  name: 'Login',
   data() {
     return {
-      redirectPath: "",
+      redirectPath: '',
       timer: null,
       logo,
       loginForm: {
-        username: "admin",
-        password: "admin",
+        username: 'admin',
+        password: 'admin',
       },
       loginRules: {
-        username: [
-          { required: true, message: "请输入用户名", trigger: "blur" },
-        ],
-        password: [
-          { required: true, message: "请输入用户密码", trigger: "blur" },
-        ],
+        username: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
+        password: [{ required: true, message: '请输入用户密码', trigger: 'blur' }],
       },
-      passwordType: "password",
+      passwordType: 'password',
       loading: false,
-    };
+    }
   },
   created() {
-    this.redirectPath = this.$route.query?.redirect || "";
+    this.redirectPath = this.$route.query?.redirect || ''
   },
   beforeDestroy() {
-    clearTimeout(this.timer);
+    clearTimeout(this.timer)
   },
   methods: {
     showPwd() {
-      if (this.passwordType === "password") {
-        this.passwordType = "";
+      if (this.passwordType === 'password') {
+        this.passwordType = ''
       } else {
-        this.passwordType = "password";
+        this.passwordType = 'password'
       }
       this.$nextTick(() => {
-        this.$refs.password.focus();
-      });
+        this.$refs.password.focus()
+      })
     },
     handleLogin() {
-      this.loading = true;
-      this.$refs.loginForm.validate((valid) => {
+      this.loading = true
+      this.$refs.loginForm.validate(valid => {
         if (valid) {
-          //模拟延迟请求
+          // 模拟延迟请求
           this.timer = setTimeout(() => {
-            if (
-              this.loginForm.username === "admin" &&
-              this.loginForm.password === "admin"
-            ) {
-              authStorage.setUserInfo(this.loginForm);
-              //进行跳转
+            if (this.loginForm.username === 'admin' && this.loginForm.password === 'admin') {
+              authStorage.setUserInfo(this.loginForm)
+              // 进行跳转
               if (this.redirectPath) {
-                this.$message.success("登录成功");
-                this.$router.push(this.redirectPath);
+                this.$message.success('登录成功')
+                this.$router.push(this.redirectPath)
               } else {
                 this.$router.push({
-                  name: "DashBoard",
-                });
+                  name: 'DashBoard',
+                })
               }
             } else {
-              this.$message.warning("请输入正确的账号或者密码");
+              this.$message.warning('请输入正确的账号或者密码')
             }
-            this.loading = false;
-          }, 2000);
+            this.loading = false
+          }, 2000)
         }
-      });
+      })
     },
   },
-};
+}
 </script>
 
 <style lang="less">
@@ -188,7 +180,7 @@ export default {
   position: relative;
   min-height: 100%;
   width: 100%;
-  background-image: url("../../assets/images/back.jpg");
+  background-image: url('../../assets/images/back.jpg');
   background-repeat: no-repeat;
   background-position: top;
   background-size: 100% 100%;

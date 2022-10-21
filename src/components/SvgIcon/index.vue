@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: "SvgIcon",
+  name: 'SvgIcon',
   props: {
     iconClass: {
       type: String,
@@ -20,31 +20,30 @@ export default {
     },
     className: {
       type: String,
-      default: "",
+      default: '',
     },
   },
   computed: {
     isExternal() {
-      return $validate.isExternal(this.iconClass);
+      return $validate.isExternal(this.iconClass)
     },
     iconName() {
-      return `#icon-${this.iconClass}`;
+      return `#icon-${this.iconClass}`
     },
     svgClass() {
       if (this.className) {
-        return "svg-icon " + this.className;
-      } else {
-        return "svg-icon";
+        return `svg-icon ${this.className}`
       }
+      return 'svg-icon'
     },
     styleExternalIcon() {
       return {
         mask: `url(${this.iconClass}) no-repeat 50% 50%`,
-        "-webkit-mask": `url(${this.iconClass}) no-repeat 50% 50%`,
-      };
+        '-webkit-mask': `url(${this.iconClass}) no-repeat 50% 50%`,
+      }
     },
   },
-};
+}
 </script>
 
 <style scoped>
