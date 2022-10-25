@@ -8,13 +8,14 @@
 </template>
 
 <script>
-import BreadCrumb from "@components/BreadCrumb";
+import BreadCrumb from '@components/BreadCrumb'
+
 export default {
   components: {
     BreadCrumb,
   },
   data() {
-    return {};
+    return {}
   },
 
   computed: {},
@@ -22,7 +23,7 @@ export default {
   mounted() {},
 
   methods: {},
-};
+}
 </script>
 
 <style lang="less" scoped>

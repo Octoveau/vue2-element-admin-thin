@@ -12,9 +12,10 @@
   </el-menu>
 </template>
 <script>
-import menuItem from "./menuItem";
+import menuItem from './menuItem'
+
 export default {
-  name: "Menu",
+  name: 'Menu',
   components: { menuItem },
   props: {
     menuList: {
@@ -24,16 +25,16 @@ export default {
   },
   computed: {
     menu() {
-      return this.menuList;
+      return this.menuList
     },
 
     defaultActive() {
-      const { path } = this.$route;
+      const { path } = this.$route
       if (path) {
-        return path;
+        return path
       }
-      return "DashBoard";
+      return 'DashBoard'
     },
   },
-};
+}
 </script>
