@@ -34,9 +34,9 @@ export default {
   ::v-deep .el-menu {
     background-color: #001529 !important;
   }
-  ::v-deep .el-menu-item {
-    background-color: #001529 !important;
-  }
+  // ::v-deep .el-menu-item {
+  //   background-color: #001529 !important;
+  // }
   ::v-deep .el-submenu__title {
     background-color: #001529 !important;
   }
