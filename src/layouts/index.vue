@@ -4,7 +4,7 @@
       <header-comp />
     </el-header>
     <el-container>
-      <el-aside width="2.5rem">
+      <el-aside style="width: 200px">
         <aside-comp />
       </el-aside>
       <el-main>
