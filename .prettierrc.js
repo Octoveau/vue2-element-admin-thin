@@ -7,4 +7,5 @@ module.exports = {
   bracketSpacing: true, // 对象字面量的大括号间使用空格(默认true)
   jsxBracketSameLine: false, // 多行JSX中的>放置在最后一行的结尾，而不是另起一行(默认false)
   arrowParens: 'avoid', // 只有一个参数的箭头函数的参数是否带圆括号(默认avoid)
+  endOfLine: 'auto',
 }

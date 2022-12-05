@@ -8,7 +8,7 @@ Vue.use(VueRouter)
 
 const router = new VueRouter({
   mode: 'history',
-  base: process.env.BASE_URL,
+  base: process.env.NODE_ENV === 'production' ? '/vue2-template' : '/',
   routes: [...adminRoutes, ...loginRoutes],
 })
 // 路由守卫
