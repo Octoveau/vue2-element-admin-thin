@@ -45,7 +45,7 @@ jobs:
           password: ${{ secrets.SSH_PASSWORD }}
           script: |
             docker pull ${{ secrets.DOCKER_PATH }}:latest
-           # ssh  root@${{ secrets.USER_HOST }} "docker rm -f  vue2-admin-template-container"
-           # ssh  root@${{ secrets.USER_HOST }} "docker rmi -f registry.cn-chengdu.aliyuncs.com/octoveau/vue2-admin-template"
             ssh  root@${{ secrets.USER_HOST }} "cd /www/looper/vue2-admin-template/;docker-compose -f docker-compose.yml pull;docker-compose -f docker-compose.yml up -d;exit"
             ssh  root@${{ secrets.USER_HOST }} "docker rmi $(docker images -q -f dangling=true)"
+          # ssh  root@${{ secrets.USER_HOST }} "docker rm -f  vue2-admin-template-container"
+          # ssh  root@${{ secrets.USER_HOST }} "docker rmi -f registry.cn-chengdu.aliyuncs.com/octoveau/vue2-admin-template"
