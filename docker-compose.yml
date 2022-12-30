@@ -1,8 +1,8 @@
 version: '2'
 services:
-  large-screen:
+  vue2-admin-template:
     build: .
     image: registry.cn-chengdu.aliyuncs.com/octoveau/vue2-admin-template
     ports:
       - '8886:80'
-    container_name: large-screen-container
+    container_name: vue2-admin-template-container

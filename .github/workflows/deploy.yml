@@ -1,0 +1,51 @@
+name: deploy vue2-admin-template 🚀
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build-sso-admin-portal-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: step Checkout 🚀
+        uses: actions/checkout@v3
+      - name: step Use Node.js 16 🚀
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+      - name: step Build Project 🚀
+        run: |
+          yarn install
+          yarn run build
+      - name: SSH Server Deploy 🚀
+        uses: easingthemes/ssh-deploy@v2.2.11
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+          ARGS: '-avzr --delete'
+          SOURCE: './*'
+          REMOTE_HOST: ${{ secrets.USER_HOST }}
+          REMOTE_USER: ${{ secrets.USER_NAME }}
+          TARGET: ${{secrets.SERVER_SAVE_PATH}}
+          EXCLUDE: '/node_modules/'
+      - name: Login To Docker 🚀
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USER_NAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          registry: ${{ secrets.DOCKER_PATH }}
+      - name: push Docker Hub 🚀
+        run: |
+          docker build -t ${{ secrets.DOCKER_PATH }}:latest .
+          docker push ${{ secrets.DOCKER_PATH }}:latest
+      - name: deploy Docker Images 🚀
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.USER_HOST }}
+          username: ${{ secrets.USER_NAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          script: |
+            docker pull ${{ secrets.DOCKER_PATH }}:latest
+            ssh  root@${{ secrets.USER_HOST }} "docker rm -f  vue2-admin-template-container"
+            ssh  root@${{ secrets.USER_HOST }} "docker rmi -f registry.cn-chengdu.aliyuncs.com/octoveau/vue2-admin-template"
+            ssh  root@${{ secrets.USER_HOST }} "cd /www/looper/vue2-admin-template/;docker-compose -f docker-compose.yml pull;docker-compose -f docker-compose.yml up -d;exit"
+            ssh  root@${{ secrets.USER_HOST }} "docker rmi $(docker images -q -f dangling=true)"
