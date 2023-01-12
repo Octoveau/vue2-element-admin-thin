@@ -24,8 +24,7 @@ class RouterGuards {
       } else {
         // 判断是否登录，如果没登录，需要先跳转到登录
         if (!authStorage.getUserInfo()) {
-          const { fullPath } = to
-          return next(`/login?redirect=${fullPath}`)
+          return next(`/login`)
         }
         next()
       }
