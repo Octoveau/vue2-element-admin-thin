@@ -7,7 +7,8 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "eslint": "eslint --fix --ext .js,.vue src",
-    "dll": "webpack --config ./webpack.dll.js"
+    "eslint:fix": "eslint --fix --ext .js,.vue --fix src",
+    "dll": "webpack --config ./webpack/webpack.dll.js"
   },
   "dependencies": {
     "add-asset-html-webpack-plugin": "4.0.1",
