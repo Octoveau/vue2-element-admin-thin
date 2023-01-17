@@ -3,13 +3,11 @@ module.exports = {
   env: {
     node: true,
   },
-  extends: ['plugin:vue/essential', 'eslint:recommended', 'plugin:prettier/recommended'],
+  extends: ['plugin:vue/essential', 'eslint:recommended'],
   parserOptions: {
     parser: 'babel-eslint',
   },
-  rules: {
-    'prettier/prettier': 'error',
-  },
+  rules: {},
   settings: {
     'import/resolver': {
       node: {
@@ -25,4 +23,4 @@ module.exports = {
     $validate: true,
     $is: true,
   },
-}
+};

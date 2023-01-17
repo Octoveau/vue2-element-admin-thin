@@ -8,32 +8,31 @@ import authStorage from '@/utils/auth'
 export default {
   data() {
     return {
-      timer: null,
+       siteKey: '5ba7b6fe36a04ce0bab97f103907123f',
     }
   },
-  created() {
-    this.openFullScreen2()
-  },
-  beforeDestroy() {
-    clearInterval(this.timer)
-  },
+
+
   methods: {
-    openFullScreen2() {
-      const loading = this.$loading({
-        lock: true,
-        text: '正在退出登录...',
-        spinner: 'el-icon-loading',
-        background: 'rgba(0, 0, 0, 0.65)',
-      })
-      this.timer = setTimeout(() => {
-        loading.close()
-        authStorage.removeUserInfo()
+    handleLogout(){
+      let tokenInfo=JSON.parse(authStorage.getTokenInfo()) 
+       authStorage.removeUserInfo()
+       authStorage.removeTokenInfo()
+       if(tokenInfo){
+           //组装数据跳转到sso登出系统
+         window.location.replace(`http://www.octoveau.cn/sso-login/openLogout/${tokenInfo.token}?sitekey=${this.siteKey}`)
+       }
+       else{
         this.$router.push({
-          name: 'Login',
+          name:'Login'
         })
-      }, 2000)
-    },
+       }
+       
+    }
   },
+  mounted(){
+    this.handleLogout()
+  }
 }
 </script>
 

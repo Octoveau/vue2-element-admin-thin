@@ -1,50 +1,41 @@
-import storage from './storage'
+import storage from './storage';
 
-const USERINFO_KEY = 'user_info'
+const USERINFO_KEY = 'user_info';
+const TOEKN_INFO = 'token_info';
 
 class Auth {
-  #userInfo = (e => {
-    console.log('e', e)
+  #userInfo = ((e) => {
     if (!e) {
-      return null
+      return null;
     }
     try {
-      return JSON.parse(e)
+      return JSON.parse(e);
     } catch (err) {
-      storage.setStorage(USERINFO_KEY, null)
-      return null
+      storage.setStorage(USERINFO_KEY, null);
+      return null;
     }
-  })(storage.getStorage(USERINFO_KEY))
-
-  /*
-   * @description 存储用户信息
-   */
+  })(storage.getStorage(USERINFO_KEY));
   setUserInfo(value) {
-    this.#userInfo = value
-    storage.setStorage(USERINFO_KEY, value)
+    this.#userInfo = value;
+    storage.setStorage(USERINFO_KEY, value);
   }
-
-  /*
-   * @description 获取用户Token
-   */
-  getUserToken() {
-    return this.#userInfo?.token
-  }
-
-  /*
-   * @description 获取用户信息
-   */
   getUserInfo() {
-    return storage.getStorage(USERINFO_KEY)
+    return storage.getStorage(USERINFO_KEY);
+  }
+  removeUserInfo() {
+    this.#userInfo = null;
+    storage.removeStorage(USERINFO_KEY);
   }
 
-  /*
-   * @description 删除用户信息
-   */
-  removeUserInfo() {
-    this.#userInfo = null
-    storage.removeStorage(USERINFO_KEY)
+  setTokenInfo(value) {
+    storage.setStorage(TOEKN_INFO, value);
+  }
+  getTokenInfo() {
+    return storage.getStorage(TOEKN_INFO);
+  }
+  removeTokenInfo() {
+    storage.removeStorage(TOEKN_INFO);
   }
 }
 
-export default new Auth()
+export default new Auth();
