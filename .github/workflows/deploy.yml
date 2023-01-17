@@ -2,7 +2,7 @@ name: deploy vue2-template-protal 🚀
 on:
   push:
     branches:
-      - main
+      - release
 jobs:
   build-sso-admin-portal-deploy:
     runs-on: ubuntu-latest

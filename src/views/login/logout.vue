@@ -20,7 +20,7 @@ export default {
        authStorage.removeTokenInfo()
        if(tokenInfo){
            //组装数据跳转到sso登出系统
-         window.location.replace(`http://localhost:8800/openLogout/${tokenInfo.token}?sitekey=${this.siteKey}`)
+         window.location.replace(`http://www.octoveau.cn/sso-login/openLogout/${tokenInfo.token}?sitekey=${this.siteKey}`)
        }
        else{
         this.$router.push({

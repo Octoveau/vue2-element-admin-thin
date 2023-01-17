@@ -28,7 +28,7 @@ export default {
         });
       } else {
         //需要跳转到单点登录平台
-        window.location.replace(`http://localhost:8800/openLogin/${this.loginConfig.siteKey}`)
+        window.location.replace(`http://www.octoveau.cn/sso-login/openLogin/${this.loginConfig.siteKey}`)
       }
     },
     getUserInfo(token){
