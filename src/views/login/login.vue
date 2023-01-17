@@ -3,7 +3,8 @@
 </template> 
 
 <script>
-import { getOpenToken } from '@/api/auth';
+import { getOpenToken,getUserInfoByToken } from '@/api/auth';
+import authStorage from '@/utils/auth'
 export default {
   data() {
     return {
@@ -20,12 +21,24 @@ export default {
       //已经登录成功
       if (this.loginConfig.ticket) {
         getOpenToken(this.loginConfig).then((res) => {
-          console.log('res', res);
+         if(res.code===200){
+           authStorage.setTokenInfo(res.data)
+           this.getUserInfo(res.data.token)
+         }
         });
       } else {
         //需要跳转到单点登录平台
+        window.location.replace(`http://localhost:8800/openLogin/${this.loginConfig.siteKey}`)
       }
     },
+    getUserInfo(token){
+        getUserInfoByToken(token).then(res=>{
+         authStorage.setUserInfo(res.data)
+         this.$router.push({
+          name:'DashBoard'
+         })
+        })
+    }
   },
   mounted() {
     this.loginConfig.ticket = this.$route.query['ticket'] || '';
