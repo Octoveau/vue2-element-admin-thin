@@ -8,7 +8,7 @@ import authStorage from '@/utils/auth'
 export default {
   data() {
     return {
-       siteKey: '5ba7b6fe36a04ce0bab97f103907123f',
+       siteKey: process.env.VUE_APP_TARGET_SITE_KEY,
     }
   },
 
