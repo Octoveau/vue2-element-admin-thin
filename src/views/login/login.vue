@@ -10,8 +10,8 @@ export default {
     return {
       isLoading: true,
       loginConfig: {
-        siteKey: '5ba7b6fe36a04ce0bab97f103907123f',
-        siteSecret: '1ff77c23c2ea440d84ab17505b4588026233c709bf5d489aae07cd3b788999e1',
+        siteKey: process.env.VUE_APP_TARGET_SITE_KEY,
+        siteSecret: process.env.VUE_APP_TARGET_SITE_SECRET,
         ticket: '',
       },
     };
