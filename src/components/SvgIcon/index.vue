@@ -1,10 +1,5 @@
 <template>
-  <div
-    v-if="isExternal"
-    :style="styleExternalIcon"
-    class="svg-external-icon svg-icon"
-    v-on="$listeners"
-  />
+  <div v-if="isExternal" :style="styleExternalIcon" class="svg-external-icon svg-icon" v-on="$listeners" />
   <svg v-else :class="svgClass" aria-hidden="true" v-on="$listeners">
     <use :xlink:href="iconName" />
   </svg>
@@ -25,25 +20,25 @@ export default {
   },
   computed: {
     isExternal() {
-      return $validate.isExternal(this.iconClass)
+      return $validate.isExternal(this.iconClass);
     },
     iconName() {
-      return `#icon-${this.iconClass}`
+      return `#icon-${this.iconClass}`;
     },
     svgClass() {
       if (this.className) {
-        return `svg-icon ${this.className}`
+        return `svg-icon ${this.className}`;
       }
-      return 'svg-icon'
+      return 'svg-icon';
     },
     styleExternalIcon() {
       return {
         mask: `url(${this.iconClass}) no-repeat 50% 50%`,
         '-webkit-mask': `url(${this.iconClass}) no-repeat 50% 50%`,
-      }
+      };
     },
   },
-}
+};
 </script>
 
 <style scoped>

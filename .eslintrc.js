@@ -1,21 +1,86 @@
 module.exports = {
-  root: true,
   env: {
-    node: true,
+    browser: true,
+    es2021: true,
   },
-  extends: ['plugin:vue/essential', 'eslint:recommended', 'plugin:prettier/recommended'],
+  extends: [
+    'airbnb-base',
+    // 特别注意：plugin:vue/recommended 用于矫正vue文件结构顺序乱写问题
+    'plugin:vue/recommended',
+    'prettier',
+  ],
+  plugins: ['vue', 'prettier'],
+  overrides: [],
   parserOptions: {
-    parser: 'babel-eslint',
-  },
-  rules: {
-    'prettier/prettier': 'error',
+    ecmaVersion: 'latest',
+    sourceType: 'module',
   },
   settings: {
+    // 配置此配置后即可解决vue中通过alias引入文件的报错问题
     'import/resolver': {
-      node: {
-        extensions: ['.js'],
+      alias: {
+        map: [
+          ['@', './src'],
+          ['@components', './src/components'],
+        ],
+        extensions: ['.js', '.jsx', '.vue'],
       },
     },
+  },
+  rules: {
+    'prettier/prettier': ['error'],
+    semi: 'error',
+    radix: 'off',
+    'class-methods-use-this': 'off',
+    'import/prefer-default-export': 'off',
+    'no-multi-assign': 'off',
+    'no-param-reassign': 'off',
+    'func-names': ['error', 'never'],
+    'no-underscore-dangle': 'off',
+    'vue/no-reserved-component-names': 'off',
+    'import/extensions': ['error', { vue: 'never' }],
+    'vue/multi-word-component-names': 'off',
+    // 特别注意：vue/order-in-components，此规则用于矫正vue文件结构顺序乱写问题
+    'vue/order-in-components': [
+      'error',
+      {
+        order: [
+          'el',
+          'name',
+          'key',
+          'parent',
+          'functional',
+          ['delimiters', 'comments'],
+          ['components', 'directives', 'filters'],
+          'extends',
+          'mixins',
+          ['provide', 'inject'],
+          'ROUTER_GUARDS',
+          'layout',
+          'middleware',
+          'validate',
+          'scrollToTop',
+          'transition',
+          'loading',
+          'inheritAttrs',
+          'model',
+          ['props', 'propsData'],
+          'emits',
+          'setup',
+          'fetch',
+          'asyncData',
+          'data',
+          'head',
+          'computed',
+          'watch',
+          'watchQuery',
+          'LIFECYCLE_HOOKS',
+          'methods',
+          ['template', 'render'],
+          'renderError',
+        ],
+      },
+    ],
   },
   globals: {
     _: true,
@@ -25,4 +90,4 @@ module.exports = {
     $validate: true,
     $is: true,
   },
-}
+};

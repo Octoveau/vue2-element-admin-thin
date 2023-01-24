@@ -15,9 +15,9 @@
 </template>
 
 <script>
-import HeaderComp from './header'
-import ContentComp from './content'
-import AsideComp from './aside'
+import HeaderComp from './header';
+import ContentComp from './content';
+import AsideComp from './aside';
 
 export default {
   components: {
@@ -26,7 +26,7 @@ export default {
     AsideComp,
   },
   data() {
-    return {}
+    return {};
   },
 
   computed: {},
@@ -34,7 +34,7 @@ export default {
   mounted() {},
 
   methods: {},
-}
+};
 </script>
 <style lang="less" scoped>
 ::v-deep .el-header {

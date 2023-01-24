@@ -1,24 +1,22 @@
-// const Components = require("unplugin-vue-components/webpack");
-// const { ElementUiResolver } = require("unplugin-vue-components/resolvers");
-const path = require('path')
-const { ProvidePlugin } = require('webpack')
-const { DllReferencePlugin } = require('webpack')
-const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin')
-const fs = require('fs')
+const path = require('path');
+const { ProvidePlugin } = require('webpack');
+const { DllReferencePlugin } = require('webpack');
+const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
+const fs = require('fs');
 
-const files = fs.readdirSync('./dll')
+const files = fs.readdirSync('./dll');
 
 // 获取dll文件列表
-const dllReferencePluginArray = []
-const addAssetsPluginArray = []
+const dllReferencePluginArray = [];
+const addAssetsPluginArray = [];
 
-files.forEach(item => {
+files.forEach((item) => {
   if (/\.manifest.json$/g.test(item)) {
     dllReferencePluginArray.push(
       new DllReferencePlugin({
         manifest: require(`./dll/${item}`),
-      })
-    )
+      }),
+    );
   }
 
   if (/\.js$/g.test(item)) {
@@ -26,10 +24,10 @@ files.forEach(item => {
       new AddAssetHtmlPlugin({
         // dll文件位置
         filepath: path.resolve(__dirname, `./dll/${item}`),
-      })
-    )
+      }),
+    );
   }
-})
+});
 
 module.exports = {
   publicPath: process.env.NODE_ENV === 'production' ? './' : '/',
@@ -68,7 +66,7 @@ module.exports = {
   },
   chainWebpack(config) {
     // set svg-sprite-loader
-    config.module.rule('svg').exclude.add(path.resolve('src/assets/icons')).end()
+    config.module.rule('svg').exclude.add(path.resolve('src/assets/icons')).end();
     config.module
       .rule('icons')
       .test(/\.svg$/)
@@ -79,6 +77,6 @@ module.exports = {
       .options({
         symbolId: 'icon-[name]',
       })
-      .end()
+      .end();
   },
-}
+};

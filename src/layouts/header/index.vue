@@ -37,7 +37,7 @@ export default {
   data() {
     return {
       userName: 'Admin',
-    }
+    };
   },
 
   computed: {},
@@ -50,10 +50,10 @@ export default {
     handleLogout() {
       this.$router.push({
         name: 'Logout',
-      })
+      });
     },
   },
-}
+};
 </script>
 <style lang="less" scoped>
 .header-container {

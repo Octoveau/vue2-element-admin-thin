@@ -1,13 +1,4 @@
 {
-  "compilerOptions": {
-    "target": "ES6",
-    "module": "commonjs",
-    "allowSyntheticDefaultImports": true,
-    "baseUrl": "./",
-    "paths": {
-      "@/*": ["src/*"],
-      "@components/*": ["src/components/*"]
-    }
-  },
-  "exclude": ["node_modules"]
+  "include": ["./src/*"],
+  "extensions": [".vue"]
 }

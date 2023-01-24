@@ -5,14 +5,7 @@
         <el-image class="image" :src="logo"></el-image>
       </div>
       <div class="div-form">
-        <el-form
-          ref="loginForm"
-          :model="loginForm"
-          :rules="loginRules"
-          class="login-form"
-          autocomplete="on"
-          label-position="left"
-        >
+        <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" autocomplete="on" label-position="left">
           <div class="title-container">
             <h3 class="title">Vue2 Template Portal 登录界面</h3>
           </div>
@@ -21,15 +14,7 @@
             <span class="svg-container">
               <svg-icon icon-class="user" />
             </span>
-            <el-input
-              ref="username"
-              v-model.trim="loginForm.username"
-              placeholder="Username"
-              name="username"
-              type="text"
-              tabindex="1"
-              autocomplete="on"
-            />
+            <el-input ref="username" v-model.trim="loginForm.username" placeholder="Username" name="username" type="text" tabindex="1" autocomplete="on" />
           </el-form-item>
 
           <el-form-item prop="password">
@@ -52,13 +37,7 @@
             </span>
           </el-form-item>
 
-          <el-button
-            :loading="loading"
-            type="primary"
-            style="width: 100%; margin-bottom: 0.2rem"
-            @click.native.prevent="handleLogin"
-            >登录</el-button
-          >
+          <el-button :loading="loading" type="primary" style="width: 100%; margin-bottom: 0.2rem" @click.native.prevent="handleLogin">登录</el-button>
 
           <div style="position: relative">
             <div class="tips">
@@ -73,11 +52,12 @@
 </template>
 
 <script>
-import logo from '@/assets/images/pic3.png'
-import authStorage from '@/utils/auth'
+import logo from '@/assets/images/pic3.png';
+import authStorage from '@/utils/auth';
 
 export default {
   name: 'Login',
+
   data() {
     return {
       redirectPath: '',
@@ -93,52 +73,53 @@ export default {
       },
       passwordType: 'password',
       loading: false,
-    }
+    };
   },
   created() {
-    this.redirectPath = this.$route.query?.redirect || ''
+    this.redirectPath = this.$route.query?.redirect || '';
   },
   beforeDestroy() {
-    clearTimeout(this.timer)
+    clearTimeout(this.timer);
+    [1, 2, 3].forEach((item) => item);
   },
   methods: {
     showPwd() {
       if (this.passwordType === 'password') {
-        this.passwordType = ''
+        this.passwordType = '';
       } else {
-        this.passwordType = 'password'
+        this.passwordType = 'password';
       }
       this.$nextTick(() => {
-        this.$refs.password.focus()
-      })
+        this.$refs.password.focus();
+      });
     },
     handleLogin() {
-      this.loading = true
-      this.$refs.loginForm.validate(valid => {
+      this.loading = true;
+      this.$refs.loginForm.validate((valid) => {
         if (valid) {
           // 模拟延迟请求
           this.timer = setTimeout(() => {
             if (this.loginForm.username === 'admin' && this.loginForm.password === 'admin') {
-              authStorage.setUserInfo(this.loginForm)
+              authStorage.setUserInfo(this.loginForm);
               // 进行跳转
               if (this.redirectPath) {
-                this.$message.success('登录成功')
-                this.$router.push(this.redirectPath)
+                this.$message.success('登录成功');
+                this.$router.push(this.redirectPath);
               } else {
                 this.$router.push({
                   name: 'DashBoard',
-                })
+                });
               }
             } else {
-              this.$message.warning('请输入正确的账号或者密码')
+              this.$message.warning('请输入正确的账号或者密码');
             }
-            this.loading = false
-          }, 2000)
+            this.loading = false;
+          }, 2000);
         }
-      })
+      });
     },
   },
-}
+};
 </script>
 
 <style lang="less">
