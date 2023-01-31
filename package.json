@@ -12,6 +12,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "add-asset-html-webpack-plugin": "^5.0.2",
     "axios": "^1.1.2",
     "core-js": "^3.6.5",
     "element-ui": "^2.15.10",
@@ -31,7 +32,6 @@
     "@vue/cli-plugin-router": "~4.5.17",
     "@vue/cli-plugin-vuex": "~4.5.17",
     "@vue/cli-service": "~4.5.17",
-    "add-asset-html-webpack-plugin": "^5.0.2",
     "babel-eslint": "^10.1.0",
     "eslint": "^8.32.0",
     "eslint-config-airbnb-base": "^15.0.0",

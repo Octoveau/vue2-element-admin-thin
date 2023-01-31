@@ -21,6 +21,7 @@ module.exports = {
     'selector-class-pattern': null,
     'declaration-block-trailing-semicolon': null,
     'string-quotes': null,
+    'color-function-notation': 'legacy',
     'selector-pseudo-element-no-unknown': [
       true,
       {
