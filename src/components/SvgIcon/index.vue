@@ -43,14 +43,15 @@ export default {
 
 <style scoped>
 .svg-icon {
+  overflow: hidden;
   width: 0.2rem;
   height: 0.2rem;
-  fill: currentColor;
-  overflow: hidden;
+  fill: currentcolor;
 }
+
 .svg-external-icon {
-  background-color: currentColor;
-  mask-size: cover !important;
   display: inline-block;
+  background-color: currentcolor;
+  mask-size: cover !important;
 }
 </style>

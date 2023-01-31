@@ -28,10 +28,10 @@ export default {
 
 <style lang="less" scoped>
 .main-container {
-  margin: 0px 0px 0.15rem 0.3rem;
+  position: relative;
+  margin: 0 0 0.15rem 0.3rem;
   width: calc(100% - 0.6rem);
   height: calc(100% - 0.3rem);
-  position: relative;
 
   .main-content {
     width: 100%;

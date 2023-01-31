@@ -31,6 +31,7 @@ export default {
 <style lang="less" scoped>
 .aside-container {
   height: 100%;
+
   ::v-deep .el-menu {
     background-color: #001529 !important;
   }

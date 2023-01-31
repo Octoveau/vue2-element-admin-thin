@@ -37,7 +37,7 @@
             </span>
           </el-form-item>
 
-          <el-button :loading="loading" type="primary" style="width: 100%; margin-bottom: 0.2rem" @click.native.prevent="handleLogin">登录</el-button>
+          <el-button :loading="loading" type="primary" style="margin-bottom: 0.2rem; width: 100%" @click.native.prevent="handleLogin">登录</el-button>
 
           <div style="position: relative">
             <div class="tips">
@@ -127,31 +127,31 @@ export default {
 .login-container {
   .el-input {
     display: inline-block;
-    height: 0.5rem;
     width: 2.5rem;
+    height: 0.5rem;
 
     input {
-      background: transparent;
-      border: 0px;
-      -webkit-appearance: none;
-      border-radius: 0px;
       padding: 0.15rem 0.0625rem 0.15rem 0.1875rem;
-      color: #fff;
       height: 0.5rem;
+      color: #fff;
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      appearance: none;
       caret-color: #fff;
 
       &:-webkit-autofill {
-        box-shadow: 0 0 0px 12.5rem #fff inset !important;
+        box-shadow: 0 0 0 12.5rem #fff inset !important;
         -webkit-text-fill-color: #fff !important;
       }
     }
   }
 
   .el-form-item {
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
     color: #454545;
+    background: rgb(0 0 0 / 10%);
+    border: 1px solid rgb(255 255 255 / 10%);
+    border-radius: 5px;
   }
 }
 </style>
@@ -159,46 +159,51 @@ export default {
 <style lang="less" scoped>
 .login-container {
   position: relative;
-  min-height: 100%;
-  width: 100%;
-  background-image: url('../../assets/images/back.jpg');
-  background-repeat: no-repeat;
-  background-position: top;
-  background-size: 100% 100%;
   overflow: hidden;
+  width: 100%;
+  min-height: 100%;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-image: url('../../assets/images/back.jpg');
+
   .section {
-    box-shadow: 5px 5px 10px #100f0f;
     position: absolute;
-    left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
+    left: 50%;
     display: flex;
+    box-shadow: 5px 5px 10px #100f0f;
+    transform: translate(-50%, -50%);
+
     .div-image {
-      -webkit-clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
-      background-color: rgba(255, 255, 255);
       padding: 0.2rem;
       padding-right: 1rem;
+      background-color: rgb(255 255 255);
+      clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
+
       .image {
         width: 6rem;
       }
     }
+
     .div-form {
-      margin-left: -2.125rem;
       padding-left: 2.125rem;
-      background-color: rgba(34, 34, 34, 0.8);
+      margin-left: -2.125rem;
+      background-color: rgb(34 34 34 / 80%);
+
       .login-form {
-        padding: 1rem 0.375rem;
         position: relative;
+        overflow: hidden;
+        padding: 1rem 0.375rem;
+        margin: 0 auto;
         width: 5rem;
         max-width: 100%;
-        margin: 0 auto;
-        overflow: hidden;
       }
 
       .tips {
+        margin-bottom: 0.1rem;
         font-size: 0.175rem;
         color: #fff;
-        margin-bottom: 0.1rem;
 
         span {
           &:first-of-type {
@@ -206,30 +211,31 @@ export default {
           }
         }
       }
+
       .svg-container {
-        padding: 6px 5px 6px 15px;
-        color: rgb(83, 81, 81);
-        vertical-align: middle;
-        width: 0.2rem;
         display: inline-block;
+        padding: 6px 5px 6px 15px;
+        width: 0.2rem;
+        color: rgb(83 81 81);
+        vertical-align: middle;
       }
 
       .title-container {
         position: relative;
 
         .title {
+          margin: 0 auto 0.5rem;
           font-size: 0.325rem;
-          color: #fff;
-          margin: 0px auto 0.5rem auto;
           text-align: center;
+          color: #fff;
           font-weight: bold;
         }
       }
 
       .show-pwd {
         position: absolute;
-        right: 0.125rem;
         top: 0.0875rem;
+        right: 0.125rem;
         font-size: 0.2rem;
         color: #fff;
         cursor: pointer;
