@@ -7,7 +7,8 @@
     "build": "vue-cli-service build",
     "lint": "eslint --fix --ext .js,.vue src",
     "lint:fix": "eslint --fix --ext .js,.vue --fix src",
-    "dll": "webpack --config ./webpack/webpack.dll.js"
+    "dll": "webpack --config ./webpack/webpack.dll.js",
+    "prepare": "husky install"
   },
   "dependencies": {
     "axios": "^1.1.2",
@@ -41,10 +42,17 @@
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^9.9.0",
+    "husky": "^8.0.3",
     "less": "^3.0.4",
     "less-loader": "^5.0.0",
+    "lint-staged": "^13.1.0",
     "prettier": "^2.8.3",
     "svg-sprite-loader": "^6.0.11",
     "vue-template-compiler": "^2.6.11"
+  },
+  "lint-staged": {
+    "*.{js,jsx,tsx,ts}": [
+      "npm run lint:fix"
+    ]
   }
 }
