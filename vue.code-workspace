@@ -7,7 +7,7 @@
   "settings": {
     "eslint.enable": true,
     "workbench.colorTheme": "Palenight Theme",
-    "window.zoomLevel": 0,
+    "window.zoomLevel": 1,
     "workbench.iconTheme": "material-icon-theme",
     "explorer.confirmDelete": false,
     "[json]": {
