@@ -149,8 +149,8 @@ export default {
 
   .el-form-item {
     color: #454545;
-    background: rgb(0 0 0 / 10%);
-    border: 1px solid rgb(255 255 255 / 10%);
+    background: rgba(0, 0, 0, 10%);
+    border: 1px solid rgba(255, 255, 255, 10%);
     border-radius: 5px;
   }
 }
@@ -178,7 +178,7 @@ export default {
     .div-image {
       padding: 0.2rem;
       padding-right: 1rem;
-      background-color: rgb(255 255 255);
+      background-color: rgba(255, 255, 255);
       clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
 
       .image {
@@ -189,7 +189,7 @@ export default {
     .div-form {
       padding-left: 2.125rem;
       margin-left: -2.125rem;
-      background-color: rgb(34 34 34 / 80%);
+      background-color: rgba(34, 34, 34, 80%);
 
       .login-form {
         position: relative;
@@ -216,7 +216,7 @@ export default {
         display: inline-block;
         padding: 6px 5px 6px 15px;
         width: 0.2rem;
-        color: rgb(83 81 81);
+        color: rgb(83, 81, 81);
         vertical-align: middle;
       }
 
