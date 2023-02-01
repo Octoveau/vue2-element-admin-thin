@@ -28,6 +28,8 @@
     "webpack-cli": "^4.10.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.4.2",
+    "@commitlint/config-conventional": "^17.4.2",
     "@vue/cli-plugin-babel": "~4.5.17",
     "@vue/cli-plugin-router": "~4.5.17",
     "@vue/cli-plugin-vuex": "~4.5.17",
