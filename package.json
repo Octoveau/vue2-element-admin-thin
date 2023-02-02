@@ -9,7 +9,8 @@
     "lint:fix": "eslint --fix --ext .js,.vue --fix src",
     "lint:style": "stylelint \"./**/*.{css,less,vue,html}\" --fix src",
     "dll": "webpack --config ./webpack/webpack.dll.js",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "commit": "git-cz"
   },
   "dependencies": {
     "add-asset-html-webpack-plugin": "^5.0.2",
@@ -35,6 +36,8 @@
     "@vue/cli-plugin-vuex": "~4.5.17",
     "@vue/cli-service": "~4.5.17",
     "babel-eslint": "^10.1.0",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.32.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.6.0",
@@ -70,5 +73,10 @@
     "*.{less,html,css,vue}": [
       "npm run lint:style"
     ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-customizable"
+    }
   }
 }
