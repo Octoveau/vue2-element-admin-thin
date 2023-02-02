@@ -6,7 +6,7 @@
           <span v-if="index == breadCrumbList.length - 1" class="no-redirect">
             {{ item.meta.title }}
           </span>
-          <a @click.prevent="handleJumpLink(item)" v-else>
+          <a v-else @click.prevent="handleJumpLink(item)">
             {{ item.meta.title }}
           </a>
         </el-breadcrumb-item>
@@ -20,47 +20,45 @@ export default {
   data() {
     return {
       breadCrumbList: [],
-    }
+    };
   },
 
   watch: {
     $route() {
-      return this.getBreadCrumbList()
+      return this.getBreadCrumbList();
     },
   },
   created() {
-    this.getBreadCrumbList()
+    this.getBreadCrumbList();
   },
   methods: {
     // 获取面包屑列表
     getBreadCrumbList() {
-      let route = this.$route.matched.filter(item => item.meta && item.meta.title)
-      const first = route[0]
+      let route = this.$route.matched.filter((item) => item.meta && item.meta.title);
+      const first = route[0];
 
       if (!this.isDashBoard(first)) {
-        route = [{ path: '/dashboard', meta: { title: 'DashBoard' } }].concat(route)
+        route = [{ path: '/dashboard', meta: { title: 'DashBoard' } }].concat(route);
       }
 
-      this.breadCrumbList = route.filter(item => {
-        return item.meta && item.meta.title && item.meta.breadcrumb !== false
-      })
+      this.breadCrumbList = route.filter((item) => item.meta && item.meta.title && item.meta.breadcrumb !== false);
     },
 
     // 是否为Dashboard
     isDashBoard(route) {
-      const name = route && route.name
+      const name = route && route.name;
       if (!name) {
-        return false
+        return false;
       }
-      return name.trim().toLocaleLowerCase() === 'Dashboard'.toLocaleLowerCase()
+      return name.trim().toLocaleLowerCase() === 'Dashboard'.toLocaleLowerCase();
     },
 
     // 跳转
     handleJumpLink(item) {
-      this.$router.push(item.path)
+      this.$router.push(item.path);
     },
   },
-}
+};
 </script>
 
 <style lang="less" scoped>

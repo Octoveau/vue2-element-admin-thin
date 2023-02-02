@@ -7,14 +7,16 @@
     "dev": "vue-cli-service serve --mode development",
     "prd": "vue-cli-service serve --mode production",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "eslint": "eslint --fix --ext .js,.vue src",
-    "dll": "webpack --config ./webpack.dll.js"
+    "lint": "eslint --fix --ext .js,.vue src",
+    "lint:fix": "eslint --fix --ext .js,.vue --fix src",
+    "lint:style": "stylelint \"./**/*.{css,less,vue,html}\" --fix src",
+    "dll": "webpack --config ./webpack/webpack.dll.js",
+    "prepare": "husky install",
+    "commit": "git-cz"
   },
   "dependencies": {
-    "add-asset-html-webpack-plugin": "4.0.1",
+    "add-asset-html-webpack-plugin": "^5.0.2",
     "axios": "^1.1.2",
-    "babel-plugin-component": "^1.1.1",
     "core-js": "^3.6.5",
     "element-ui": "^2.15.10",
     "lodash": "^4.17.21",
@@ -29,28 +31,56 @@
     "webpack-cli": "^4.10.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.1.2",
-    "@commitlint/config-conventional": "^17.1.0",
+    "@commitlint/cli": "^17.4.2",
+    "@commitlint/config-conventional": "^17.4.2",
     "@vue/cli-plugin-babel": "~4.5.17",
-    "@vue/cli-plugin-eslint": "~4.5.17",
     "@vue/cli-plugin-router": "~4.5.17",
     "@vue/cli-plugin-vuex": "~4.5.17",
     "@vue/cli-service": "~4.5.17",
     "babel-eslint": "^10.1.0",
-    "eslint": "^6.7.2",
-    "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-config-prettier": "^7.0.0",
+    "commitizen": "^4.3.0",
+    "commitlint-config-cz": "^0.13.3",
+    "cz-conventional-changelog": "^3.3.0",
+    "cz-customizable": "^7.0.0",
+    "eslint": "^8.32.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-import-resolver-alias": "^1.1.2",
     "eslint-import-resolver-webpack": "^0.13.2",
     "eslint-plugin-html": "^7.1.0",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-prettier": "^3.4.1",
-    "eslint-plugin-vue": "^6.2.2",
-    "husky": "^8.0.1",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-vue": "^9.9.0",
+    "husky": "^8.0.3",
     "less": "^3.0.4",
     "less-loader": "^5.0.0",
-    "lint-staged": "^13.0.3",
+    "lint-staged": "^13.1.0",
+    "postcss": "^8.4.21",
+    "postcss-html": "^1.5.0",
+    "postcss-less": "^6.0.0",
+    "prettier": "^2.8.3",
+    "stylelint": "^14.16.1",
+    "stylelint-config-prettier": "^9.0.4",
+    "stylelint-config-recommended-less": "^1.0.4",
+    "stylelint-config-standard": "^29.0.0",
+    "stylelint-config-standard-vue": "^1.0.0",
+    "stylelint-less": "^1.0.6",
+    "stylelint-order": "^6.0.1",
     "svg-sprite-loader": "^6.0.11",
-    "unplugin-vue-components": "^0.22.8",
     "vue-template-compiler": "^2.6.11"
+  },
+  "lint-staged": {
+    "*.{js,jsx,tsx,ts}": [
+      "npm run lint:fix"
+    ],
+    "*.{less,html,css,vue}": [
+      "npm run lint:style"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-customizable"
+    }
   }
 }

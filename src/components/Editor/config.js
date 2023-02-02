@@ -5,7 +5,7 @@ export const initText = `<h1>
   </h1>
   <p>测试数据12345657788</p>
   <p>正文lalalalal</p>
-`
+`;
 
 // 菜单配置
 export const editorMenus = [
@@ -28,21 +28,10 @@ export const editorMenus = [
   'code', // 插入代码
   'undo', // 撤销
   'redo', // 重复
-]
+];
 
 // 颜色配置
-export const editorColors = [
-  '#000000',
-  '#eeece0',
-  '#1c487f',
-  '#4d80bf',
-  '#c24f4a',
-  '#8baa4a',
-  '#7b5ba1',
-  '#46acc8',
-  '#f9963b',
-  '#ffffff',
-]
+export const editorColors = ['#000000', '#eeece0', '#1c487f', '#4d80bf', '#c24f4a', '#8baa4a', '#7b5ba1', '#46acc8', '#f9963b', '#ffffff'];
 
 // 字体配置
-export const editorFonts = ['宋体', '微软雅黑', 'Arial', 'Tahoma', 'Verdana']
+export const editorFonts = ['宋体', '微软雅黑', 'Arial', 'Tahoma', 'Verdana'];
