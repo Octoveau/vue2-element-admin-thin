@@ -73,5 +73,10 @@
     "*.{less,html,css,vue}": [
       "npm run lint:style"
     ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }

@@ -10,9 +10,7 @@ export default {
 
   computed: {},
 
-  mounted() {
-    console.log('test fork');
-  },
+  mounted() {},
 
   methods: {},
 };
