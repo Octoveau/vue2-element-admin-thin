@@ -31,14 +31,22 @@ export default {
             this.getUserInfo(res.data.token);
           }
         });
-      } else {
-        // 需要跳转到单点登录平台
-        window.location.replace(`http://www.octoveau.cn/sso-login/openLogin/${this.loginConfig.siteKey}`);
+        return;
       }
+      // 需要跳转到单点登录平台
+      const fullPath = this.$route.query.redirecturl;
+      fullPath
+        ? window.location.replace(`http://www.octoveau.cn/sso-login/openLogin/${this.loginConfig.siteKey}?redirecturl=${fullPath}`)
+        : window.location.replace(`http://www.octoveau.cn/sso-login/openLogin/${this.loginConfig.siteKey}`);
     },
     getUserInfo(token) {
       getUserInfoByToken(token).then((res) => {
         authStorage.setUserInfo(res.data);
+        const fullPath = this.$route.query.redirecturl;
+        if (fullPath) {
+          this.$router.push(`${fullPath}`);
+          return;
+        }
         this.$router.push({
           name: 'DashBoard',
         });

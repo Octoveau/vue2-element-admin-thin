@@ -17,6 +17,7 @@ class RouterGuards {
 
   beforeEach() {
     return this.router.beforeEach((to, from, next) => {
+      console.log('to', to);
       NProgress.start();
       // 判断是否是白名单，白名单不需要进行登录验证
       if (this.whiteRouter.includes(to.name)) {
@@ -24,7 +25,8 @@ class RouterGuards {
       } else {
         // 判断是否登录，如果没登录，需要先跳转到登录
         if (!authStorage.getUserInfo()) {
-          return next(`/login`);
+          const { fullPath } = to;
+          return next(`/login?redirecturl=${fullPath}`);
         }
         next();
       }

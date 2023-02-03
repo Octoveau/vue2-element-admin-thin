@@ -5,10 +5,15 @@
     }
   ],
   "settings": {
+    // "editor.fontWeight": "600", //字体粗细
+    // "editor.fontSize": 16, //字体大小
+    "breadcrumbs.enabled": true, //内容上方的面包屑
+    "editor.formatOnPaste": true, //复制时候自动格式化
+    "editor.accessibilityPageSize": 12, //屏幕阅读器的可视区域
+    "editor.tabCompletion": "on", //tab的最佳补全
+    "editor.detectIndentation": true, //检测文件是否启动tabsize
+    "editor.tabSize": 2,
     "eslint.enable": true,
-    "workbench.colorTheme": "Palenight Theme",
-    "window.zoomLevel": 1,
-    "workbench.iconTheme": "material-icon-theme",
     "explorer.confirmDelete": false,
     "[json]": {
       "editor.defaultFormatter": "esbenp.prettier-vscode"
