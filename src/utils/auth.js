@@ -1,11 +1,10 @@
 import storage from './storage';
 
 const USERINFO_KEY = 'user_info';
-const TOKEN_INFO = 'user_info';
+const TOKEN_INFO = 'token_info';
 
 class Auth {
   #userInfo = ((e) => {
-    console.log('e', e);
     if (!e) {
       return null;
     }
