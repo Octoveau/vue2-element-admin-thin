@@ -9,7 +9,7 @@
     "build": "vue-cli-service build",
     "lint": "eslint --fix --ext .js,.vue src",
     "lint:fix": "eslint --fix --ext .js,.vue --fix src",
-    "lint:style": "stylelint \"./**/*.{css,less,vue,html}\" --fix src",
+    "lint:style": "stylelint --fix .css, .less, .vue, .html --fix src",
     "dll": "webpack --config ./webpack/webpack.dll.js",
     "prepare": "husky install",
     "commit": "git-cz"
