@@ -1,10 +1,5 @@
 <template>
-  <div
-    v-if="isExternal"
-    :style="styleExternalIcon"
-    class="svg-external-icon svg-icon"
-    v-on="$listeners"
-  />
+  <div v-if="isExternal" :style="styleExternalIcon" class="svg-external-icon svg-icon" v-on="$listeners" />
   <svg v-else :class="svgClass" aria-hidden="true" v-on="$listeners">
     <use :xlink:href="iconName" />
   </svg>
@@ -25,37 +20,38 @@ export default {
   },
   computed: {
     isExternal() {
-      return $validate.isExternal(this.iconClass)
+      return $validate.isExternal(this.iconClass);
     },
     iconName() {
-      return `#icon-${this.iconClass}`
+      return `#icon-${this.iconClass}`;
     },
     svgClass() {
       if (this.className) {
-        return `svg-icon ${this.className}`
+        return `svg-icon ${this.className}`;
       }
-      return 'svg-icon'
+      return 'svg-icon';
     },
     styleExternalIcon() {
       return {
         mask: `url(${this.iconClass}) no-repeat 50% 50%`,
         '-webkit-mask': `url(${this.iconClass}) no-repeat 50% 50%`,
-      }
+      };
     },
   },
-}
+};
 </script>
 
 <style scoped>
 .svg-icon {
+  overflow: hidden;
   width: 0.2rem;
   height: 0.2rem;
-  fill: currentColor;
-  overflow: hidden;
+  fill: currentcolor;
 }
+
 .svg-external-icon {
-  background-color: currentColor;
-  mask-size: cover !important;
   display: inline-block;
+  background-color: currentcolor;
+  mask-size: cover !important;
 }
 </style>

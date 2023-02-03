@@ -5,14 +5,15 @@
 <script>
 export default {
   data() {
-    return {}
+    return {};
   },
 
   computed: {},
 
-  mounted() {},
+  mounted() {
+    console.log('test fork');
+  },
 
   methods: {},
-}
+};
 </script>
-<style lang="scss" scoped></style>
