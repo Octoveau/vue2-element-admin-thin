@@ -28,6 +28,7 @@ module.exports = {
     },
   },
   rules: {
+    'import/no-cycle': 'off',
     'prettier/prettier': ['error'],
     semi: 'error',
     radix: 'off',

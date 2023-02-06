@@ -1,6 +1,7 @@
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 import authStorage from '@/utils/auth';
+import refreshTokenFun from '@/utils/refreshToken';
 
 class RouterGuards {
   constructor(router) {
@@ -16,8 +17,14 @@ class RouterGuards {
   }
 
   beforeEach() {
-    return this.router.beforeEach((to, from, next) => {
-      console.log('to', to);
+    return this.router.beforeEach(async (to, from, next) => {
+      const loginFun = () => {
+        setTimeout(() => {
+          this.router.push({
+            name: 'Login',
+          });
+        }, 600);
+      };
       NProgress.start();
       // 判断是否是白名单，白名单不需要进行登录验证
       if (this.whiteRouter.includes(to.name)) {
@@ -28,7 +35,13 @@ class RouterGuards {
           const { fullPath } = to;
           return next(`/login?redirecturl=${fullPath}`);
         }
-        next();
+        // 判断是否需要刷新
+        const result = await refreshTokenFun();
+        if (result) {
+          next();
+        } else {
+          loginFun();
+        }
       }
       return true;
     });
