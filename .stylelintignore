@@ -1,0 +1,9 @@
+*.js
+*.tsx
+*.ts
+*.json
+*.eot
+*.ttf
+*.woff
+*.woff2
+assets/

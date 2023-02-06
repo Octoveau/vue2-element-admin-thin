@@ -15,6 +15,6 @@ const loginRoutes = [
     },
     component: () => import('@/views/login/logout'),
   },
-]
+];
 
-export default loginRoutes
+export default loginRoutes;

@@ -1,36 +1,37 @@
 <template>
   <div class="aside-container">
-    <menu-comp :menuList="menuData" />
+    <menu-comp :menu-list="menuData" />
   </div>
 </template>
 
 <script>
-import MenuComp from '@components/Menu'
-import { menuList } from '@/mock/menu.mock'
+import MenuComp from '@components/Menu';
+import { menuList } from '@/mock/menu.mock';
 
 export default {
   components: {
     MenuComp,
   },
   data() {
-    return {}
+    return {};
   },
 
   computed: {
     menuData() {
-      return menuList
+      return menuList;
     },
   },
 
   mounted() {},
 
   methods: {},
-}
+};
 </script>
 
 <style lang="less" scoped>
 .aside-container {
   height: 100%;
+
   ::v-deep .el-menu {
     background-color: #001529 !important;
   }

@@ -18,21 +18,21 @@ export const menuList = [
             children: [
               {
                 menu_name: '菜单1-1-1',
-                menu_url: ''
-              }
-            ]
+                menu_url: '',
+              },
+            ],
           },
           {
             menu_name: '菜单1-2',
-            menu_url: ''
-          }
-        ]
+            menu_url: '',
+          },
+        ],
       },
       {
         menu_name: '菜单2',
-        menu_url: ''
-      }
-    ]
+        menu_url: '',
+      },
+    ],
   },
   {
     menu_name: '地图模块',
@@ -41,8 +41,8 @@ export const menuList = [
     children: [
       {
         menu_name: '百度地图',
-        menu_url: '/home'
+        menu_url: '/home',
       },
-    ]
-  }
-]
+    ],
+  },
+];
