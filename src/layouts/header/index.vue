@@ -37,7 +37,7 @@ export default {
   data() {
     return {
       userName: 'Admin',
-    }
+    };
   },
 
   computed: {},
@@ -50,26 +50,27 @@ export default {
     handleLogout() {
       this.$router.push({
         name: 'Logout',
-      })
+      });
     },
   },
-}
+};
 </script>
 <style lang="less" scoped>
 .header-container {
   width: 100%;
   height: 100%;
+
   .logo-title {
+    font-size: 0.27rem;
     text-align: left;
     color: #fff;
     font-weight: bold;
-    font-size: 0.27rem;
   }
 
   .header-logout {
     display: flex;
-    align-items: center;
     justify-content: right;
+    align-items: center;
   }
 
   .el-dropdown-link {

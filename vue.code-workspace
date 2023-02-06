@@ -5,65 +5,38 @@
     }
   ],
   "settings": {
-    // 基本配置
-    "editor.fontLigatures": false, //禁用连体字
-    "editor.wordWrap": "off", // 换行规则，off 永不换行
-    //"editor.fontWeight": "600", //字体粗细
-    //"editor.fontSize": 16, //字体大小
+    // "editor.fontWeight": "600", //字体粗细
+    // "editor.fontSize": 16, //字体大小
+    "breadcrumbs.enabled": true, //内容上方的面包屑
+    "editor.formatOnPaste": true, //复制时候自动格式化
     "editor.accessibilityPageSize": 12, //屏幕阅读器的可视区域
     "editor.tabCompletion": "on", //tab的最佳补全
     "editor.detectIndentation": true, //检测文件是否启动tabsize
     "editor.tabSize": 2,
-    "editor.formatOnSave": true, //保存时候自动格式化
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
-    }, //保存时候自动修复问题(只是一些简单修复，具体看官网)
-    "editor.formatOnPaste": true, //复制时候自动格式化
-    "breadcrumbs.enabled": true, //内容上方的面包屑
-    "workbench.iconTheme": "vscode-icons", //文件图标主题
-    "javascript.format.insertSpaceBeforeFunctionParenthesis": true, //编写方法时候在括号之间加上空格
-
-    //eslint配置
-    "eslint.validate": ["javascript", "vue", "html"],
-    "eslint.options": {
-      "plugins": ["html"]
-    },
-
-    //保存的配置
-    "[jsonc]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[css]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[less]": {
+    "eslint.enable": true,
+    "explorer.confirmDelete": false,
+    "[json]": {
       "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[javascript]": {
       "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "[scss]": {
+    "[jsonc]": {
       "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    // vetur对vue语法支持更好
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true,
+      "source.fixAll.stylelint": true
+    },
+    "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact", "vue"],
+    "stylelint.validate": ["css", "less", "vue", "html"],
+    "prettier.endOfLine": "auto",
+    "[typescript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
     "[vue]": {
       "editor.defaultFormatter": "octref.vetur"
-    },
-    "[html]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "vetur.format.defaultFormatter.html": "js-beautify-html",
-    "vetur.format.defaultFormatterOptions": {
-      "js-beautify-html": {
-        "wrap_attributes": "auto"
-      }
-    },
-    //额外配置
-    "search.exclude": {
-      //配置排除的文件
-      "/node_modules": true,
-      "/bower_components": true,
-      "**/dist": true
     }
   }
 }

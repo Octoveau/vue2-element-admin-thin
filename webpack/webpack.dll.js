@@ -1,5 +1,5 @@
-const path = require('path')
-const webpack = require('webpack')
+const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
   mode: 'development',
@@ -18,4 +18,4 @@ module.exports = {
       path: path.resolve(__dirname, 'dll', '[name].manifest.json'),
     }),
   ],
-}
+};

@@ -1,38 +1,9 @@
-// const Components = require("unplugin-vue-components/webpack");
-// const { ElementUiResolver } = require("unplugin-vue-components/resolvers");
-const path = require('path')
-const { ProvidePlugin } = require('webpack')
-const { DllReferencePlugin } = require('webpack')
-const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin')
-const fs = require('fs')
-
-const files = fs.readdirSync('./dll')
-
-// 获取dll文件列表
-const dllReferencePluginArray = []
-const addAssetsPluginArray = []
-
-files.forEach(item => {
-  if (/\.manifest.json$/g.test(item)) {
-    dllReferencePluginArray.push(
-      new DllReferencePlugin({
-        manifest: require(`./dll/${item}`),
-      })
-    )
-  }
-
-  if (/\.js$/g.test(item)) {
-    addAssetsPluginArray.push(
-      new AddAssetHtmlPlugin({
-        // dll文件位置
-        filepath: path.resolve(__dirname, `./dll/${item}`),
-      })
-    )
-  }
-})
+const path = require('path');
+const { ProvidePlugin } = require('webpack');
+const { dllReferencePluginArray, addAssetsPluginArray } = require('./webpack/config');
 
 module.exports = {
-  publicPath: process.env.NODE_ENV === 'production' ? './' : '/',
+  publicPath: process.env.NODE_ENV === 'production' ? '/vue2-template/' : '/',
   lintOnSave: true,
   devServer: {
     port: process.env.VUE_APP_PORT,
@@ -41,7 +12,14 @@ module.exports = {
         target: process.env.VUE_APP_TARGET_API, // 代理地址，这里设置的地址会代替axios中设置的baseURL
         changeOrigin: true, // 如果接口跨域，需要进行这个参数配置
         pathRewrite: {
-          '^/api': '/',
+          '^/api': '/api',
+        },
+      },
+      '/openapi': {
+        target: process.env.VUE_APP_TARGET_API,
+        changeOrigin: true,
+        pathRewrite: {
+          '^/openapi': '/openapi',
         },
       },
     },
@@ -68,7 +46,7 @@ module.exports = {
   },
   chainWebpack(config) {
     // set svg-sprite-loader
-    config.module.rule('svg').exclude.add(path.resolve('src/assets/icons')).end()
+    config.module.rule('svg').exclude.add(path.resolve('src/assets/icons')).end();
     config.module
       .rule('icons')
       .test(/\.svg$/)
@@ -79,6 +57,6 @@ module.exports = {
       .options({
         symbolId: 'icon-[name]',
       })
-      .end()
+      .end();
   },
-}
+};
