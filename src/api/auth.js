@@ -9,3 +9,5 @@ export const getUserInfoByToken = (token) =>
       token,
     },
   });
+// 刷新token
+export const refreshTokenData = (data) => service.put('/openapi/auth/token/refresh', data);
