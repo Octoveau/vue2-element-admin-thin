@@ -1,6 +1,6 @@
 <template>
   <section>
-    <h1>这是一个home页面</h1>
+    <h1>这是一个home页面,发了一个请求</h1>
   </section>
 </template>
 
@@ -17,11 +17,6 @@ export default {
     getUserInfoByToken(token).then((res) => {
       console.log('res', res);
     });
-    getUserInfoByToken(token).then((res) => {
-      console.log('res1', res);
-    });
   },
 };
 </script>
-
-<style lang="scss" scoped></style>
