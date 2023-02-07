@@ -4,8 +4,14 @@ import Vuex from 'vuex';
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {},
-  mutations: {},
+  state: {
+    isCollapse: false,
+  },
+  mutations: {
+    changeCollapseStatus(state, status) {
+      state.isCollapse = status;
+    },
+  },
   actions: {},
   modules: {},
 });
