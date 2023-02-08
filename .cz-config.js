@@ -19,7 +19,6 @@ module.exports = {
     footer: '关联关闭的issue，例如：#31, #34(可选):\n',
     confirmCommit: '确定提交说明?(yes/no)',
   },
-  allowCustomScopes: true,
   allowBreakingChanges: ['特性', '修复'],
   subjectLimit: 100,
 };
