@@ -9,24 +9,24 @@
       </div>
     </div>
     <div class="header-title-right">
-      <div class="header-logout">
-        <svg-icon icon-class="user" style="color: #fff" />
-        <div>
-          <el-dropdown>
-            <span class="el-dropdown-link">
-              <span>{{ userName }}</span>
-              <i class="el-icon-arrow-down el-icon--right"></i>
-            </span>
-            <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item key="0">
-                <span @click="handleJumpToPersonal">个人中心</span>
-              </el-dropdown-item>
-              <el-dropdown-item key="1">
-                <span @click="handleLogout">退出登录</span>
-              </el-dropdown-item>
-            </el-dropdown-menu>
-          </el-dropdown>
-        </div>
+      <!-- i18n -->
+      <i18n-comp class="header-title-right__item" />
+      <el-divider direction="vertical"></el-divider>
+      <div class="header-logout header-title-right__item">
+        <el-dropdown>
+          <span class="el-dropdown-link">
+            <svg-icon icon-class="user" style="color: #fff" class="user-icon" />
+            <span>{{ userName }}</span>
+          </span>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item key="0">
+              <span @click="handleJumpToPersonal">{{ $t('navbar.profile') }}</span>
+            </el-dropdown-item>
+            <el-dropdown-item key="1">
+              <span @click="handleLogout">{{ $t('navbar.logOut') }}</span>
+            </el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
       </div>
     </div>
   </div>
@@ -34,8 +34,10 @@
 
 <script>
 import { mapState, mapMutations } from 'vuex';
+import I18nComp from '@components/I18n';
 
 export default {
+  components: { I18nComp },
   data() {
     return {
       userName: 'Admin',
@@ -97,6 +99,22 @@ export default {
     }
   }
 
+  .header-title-right {
+    display: flex;
+
+    /deep/.el-divider {
+      align-self: center;
+    }
+
+    .header-title-right__item {
+      padding: 0 8px;
+
+      &:hover {
+        background-color: #33383d;
+      }
+    }
+  }
+
   .header-logout {
     display: flex;
     justify-content: right;
@@ -104,9 +122,14 @@ export default {
   }
 
   .el-dropdown-link {
-    margin-left: 0.2rem;
+    display: flex;
+    align-items: center;
     cursor: pointer;
     color: #fff;
+
+    .user-icon {
+      margin-right: 12px;
+    }
   }
 
   .el-col {

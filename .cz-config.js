@@ -8,11 +8,9 @@ module.exports = {
     { value: 'chore', name: 'chore[工具]:    开发工具变动(构建、脚手架工具等)' },
     { value: 'revert', name: 'revert[回滚]:    代码回退' },
   ],
-  scopes: [{ name: 'javascript' }, { name: 'typescript' }, { name: 'Vue' }, { name: 'node' }],
   // override the messages, defaults are as follows
   messages: {
     type: '选择一种你的提交类型:',
-    scope: '选择一个scope (可选):',
     // used if allowCustomScopes is true
     customScope: 'Denote the SCOPE of this change:',
     subject: '短说明:\n',
