@@ -1,17 +1,11 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import common from './modules/common';
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {
-    isCollapse: false,
+  modules: {
+    common,
   },
-  mutations: {
-    changeCollapseStatus(state, status) {
-      state.isCollapse = status;
-    },
-  },
-  actions: {},
-  modules: {},
 });

@@ -26,7 +26,7 @@ export default {
     },
   },
   computed: {
-    ...mapState(['isCollapse']),
+    ...mapState('common', ['isCollapse']),
     menu() {
       return this.menuList;
     },

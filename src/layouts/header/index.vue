@@ -43,13 +43,13 @@ export default {
   },
 
   computed: {
-    ...mapState(['isCollapse']),
+    ...mapState('common', ['isCollapse']),
   },
 
   mounted() {},
 
   methods: {
-    ...mapMutations(['changeCollapseStatus']),
+    ...mapMutations('common', ['changeCollapseStatus']),
 
     handleJumpToPersonal() {},
 
