@@ -11,9 +11,8 @@
         <i role="img" class="el-icon-s-comment"></i>
       </span>
       <el-dropdown-menu slot="dropdown">
-        <el-dropdown-item disabled>中文</el-dropdown-item>
-        <el-dropdown-item>
-          <span @click="handleChangeLanguage('en')">English</span>
+        <el-dropdown-item v-for="(item, index) in langOptions" :key="index" :disabled="item.lang === lang">
+          <span @click="handleChangeLanguage(item.lang)">{{ item.label }}</span>
         </el-dropdown-item>
       </el-dropdown-menu>
     </el-dropdown>
@@ -23,7 +22,13 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      lang: localStorage.getItem('lang') || 'zh',
+      langOptions: [
+        { lang: 'zh', label: '中文' },
+        { lang: 'en', label: 'English' },
+      ],
+    };
   },
 
   computed: {},
@@ -31,10 +36,10 @@ export default {
   mounted() {},
 
   methods: {
-    handleChangeLanguage(type) {
-      console.log(type);
-      this.$i18n.locale = type;
-      localStorage.setItem('lang', type);
+    handleChangeLanguage(lang) {
+      this.$i18n.locale = lang;
+      this.lang = lang;
+      localStorage.setItem('lang', lang);
     },
   },
 };

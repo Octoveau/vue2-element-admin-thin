@@ -3,6 +3,7 @@ module.exports = {
   types: [
     { value: 'feat', name: 'feat[新增]:    新的内容' },
     { value: 'fix', name: 'fix[修复]:    修复一个Bug' },
+    { value: 'config', name: 'config[配置]:    配置变更' },
     { value: 'docs', name: 'docs[文档]:    变更的只有文档' },
     { value: 'refactor', name: 'refactor[重构]:    代码重构，注意和特性、修复区分开' },
     { value: 'chore', name: 'chore[工具]:    开发工具变动(构建、脚手架工具等)' },

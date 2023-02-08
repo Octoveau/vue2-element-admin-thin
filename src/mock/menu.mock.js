@@ -1,46 +1,46 @@
 export const menuList = [
   {
-    menu_name: '首页',
+    menu_name: 'dashboard',
     menu_url: '/dashboard',
     menu_icon: 'el-icon-s-home',
   },
   {
-    menu_name: '嵌套菜单',
+    menu_name: 'nestmenu',
     menu_icon: 'el-icon-connection',
     children: [
       {
-        menu_name: '菜单1',
+        menu_name: 'menu1',
         menu_url: '',
         children: [
           {
-            menu_name: '菜单1-1',
+            menu_name: 'menu1-1',
             menu_url: '',
             children: [
               {
-                menu_name: '菜单1-1-1',
+                menu_name: 'menu1-1-1',
                 menu_url: '',
               },
             ],
           },
           {
-            menu_name: '菜单1-2',
+            menu_name: 'menu1-2',
             menu_url: '',
           },
         ],
       },
       {
-        menu_name: '菜单2',
+        menu_name: 'menu2',
         menu_url: '',
       },
     ],
   },
   {
-    menu_name: '地图模块',
+    menu_name: 'map',
     menu_url: '',
-    menu_icon: 'iconfont yl-menu-icon icon-ditu',
+    menu_icon: 'el-icon-position',
     children: [
       {
-        menu_name: '百度地图',
+        menu_name: 'baidumap',
         menu_url: '/home',
       },
     ],
