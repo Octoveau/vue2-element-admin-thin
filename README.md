@@ -1,8 +1,10 @@
 <h1 style="text-align: center">Vue2 Template Admin</h1>
 
+[README IN English](https://github.com/Octoveau/vue2-element-admin-thin/blob/main/README.es.md)
+
 ## 简介
 
-Vue2 Template Admin 作为中后台模版，其采用`vue2`，`element-ui`等相关技术栈开发。内置二次封装的常规组件，提炼并抽象化常用模块，减轻`import`与`require`的使用，提升开发效率
+Vue2 Template Admin 作为中后台模版，其采用`vue2`，`element-ui`等相关技术栈开发。内置二次封装的常用组件，提炼并抽象化常用模块，减轻`import`与`require`的使用，提升开发效率
 
 ## 特性
 
