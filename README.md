@@ -44,12 +44,9 @@ npm run dll
 
 ## commit title must followed by a space character
 
-- build: The submission is mainly about modify the building system of the project (e.g. glup, webpack, rollup configuration, etc.)
-- ci: The submission is mainly about modify the submission of the project continuing integration process (e.g. Travis, Jenkins, GitLab CI, Circle, etc.)
-- docs: Updates the document
 - feat: New function
 - fix: Fixed bugs
-- perf: performance optimization
+- config: Config changes
+- docs: Updates the document
 - refactor: Refactor the code (neither new features nor bug fixes)
--style: Code modification that does not affect program logic (modify whitespace characters, completing missing semicolons, etc.)
-- test: Add test case or update existing test
+- chore: Development tool change (build scaffolding tool etc.)

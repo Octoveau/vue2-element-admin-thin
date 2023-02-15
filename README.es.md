@@ -1,6 +1,6 @@
 <h1 style="text-align: center">Vue2 Template Admin</h1>
 
-[README IN Chinese](https://github.com/Octoveau/vue2-element-admin-thin/blob/main/README.md)
+English | [简体中文](https://github.com/Octoveau/vue2-element-admin-thin/blob/main/README.zh.md)
 ## Introduction
 
 Vue2 Template Admin as a middle-background template, which is developed with `vue2`, `element-ui` and other related technology stacks.   There are built-in secondary-encapsulates frequently-use components.   Refine and abstract frequently-use modules, reduce the use of `import` and `require`, improve development efficiency
@@ -44,12 +44,9 @@ npm run dll
 
 ## commit title must followed by a space character
 
-- build: The submission is mainly about modify the building system of the project (e.g. glup, webpack, rollup configuration, etc.)
-- ci: The submission is mainly about modify the submission of the project continuing integration process (e.g. Travis, Jenkins, GitLab CI, Circle, etc.)
-- docs: Updates the document
 - feat: New function
 - fix: Fixed bugs
-- perf: performance optimization
+- config: Config changes
+- docs: Updates the document
 - refactor: Refactor the code (neither new features nor bug fixes)
--style: Code modification that does not affect program logic (modify whitespace characters, completing missing semicolons, etc.)
-- test: Add test case or update existing test
+- chore: Development tool change (build scaffolding tool etc.)
