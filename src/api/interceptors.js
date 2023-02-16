@@ -1,7 +1,7 @@
 import { Message } from 'element-ui';
 import router from '@/router';
-// eslint-disable-next-line import/no-cycle
 import refreshTokenFun from '@/utils/refreshToken';
+import authStorage from '@/utils/auth';
 
 const ERROE_MSG = '请求异常,请重试';
 const ERROR_MSG_400 = '请求参数异常';
@@ -30,7 +30,7 @@ const handleRespCode = (respData) => {
 const loginFun = () => {
   setTimeout(() => {
     router.push({
-      name: 'Login',
+      name: 'SsoLogin',
     });
   }, 600);
 };
@@ -42,10 +42,11 @@ const setupInterceptors = (request) => {
       if (whiteApi.some((url) => config.url.includes(url))) {
         return config;
       }
-      const result = await refreshTokenFun();
-      if (!result) {
-        loginFun();
-        return config;
+      if (JSON.parse(authStorage.getIsSsoLoginInfo())) {
+        if (!(await refreshTokenFun())) {
+          loginFun();
+          return config;
+        }
       }
       return config;
     },
@@ -55,7 +56,6 @@ const setupInterceptors = (request) => {
   // 响应拦截器
   request.interceptors.response.use(
     (resp) => {
-      // 从xios里取出api返回的data
       const respData = resp.data;
       handleRespCode(respData);
       if (respData.code === 401) {

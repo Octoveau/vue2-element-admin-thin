@@ -8,6 +8,14 @@ const loginRoutes = [
     component: () => import('@/views/login/login'),
   },
   {
+    path: '/sso-login',
+    name: 'SsoLogin',
+    meta: {
+      title: '登录',
+    },
+    component: () => import('@/views/login/ssoLogin'),
+  },
+  {
     path: '/logout',
     name: 'Logout',
     meta: {
