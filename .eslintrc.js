@@ -28,6 +28,7 @@ module.exports = {
     },
   },
   rules: {
+    'no-extra-boolean-cast': 'off',
     'import/no-cycle': 'off',
     'prettier/prettier': ['error'],
     semi: 'error',

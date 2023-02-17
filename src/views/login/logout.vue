@@ -20,7 +20,7 @@ export default {
       const tokenInfo = JSON.parse(authStorage.getTokenInfo());
       authStorage.removeUserInfo();
       authStorage.removeTokenInfo();
-      if (tokenInfo) {
+      if (JSON.parse(authStorage.getIsSsoLoginInfo())) {
         // 组装数据跳转到sso登出系统
         window.location.replace(`http://www.octoveau.cn/sso-login/openLogout/${tokenInfo.token}?sitekey=${this.siteKey}`);
       } else {

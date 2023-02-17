@@ -1,4 +1,4 @@
-const __SESSION__ = sessionStorage;
+const __SESSION__ = window.sessionStorage;
 
 class Storage {
   setStorage(key, value) {
