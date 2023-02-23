@@ -40,7 +40,6 @@ export default {
 ::v-deep .el-header {
   height: 0.6rem !important;
   line-height: 0.6rem !important;
-  background-color: #001529;
   border: 0;
 }
 </style>

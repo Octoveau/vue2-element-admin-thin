@@ -7,6 +7,9 @@
       <div class="collapse-icon">
         <i :class="isCollapse ? 'el-icon-s-unfold' : 'el-icon-s-fold'" @click="handleChangeCollapse"></i>
       </div>
+      <div class="bread-crumb-content">
+        <bread-crumb />
+      </div>
     </div>
     <div class="header-title-right">
       <!-- i18n -->
@@ -15,7 +18,7 @@
       <div class="header-logout header-title-right__item">
         <el-dropdown>
           <span class="el-dropdown-link">
-            <svg-icon icon-class="user" style="color: #fff" class="user-icon" />
+            <svg-icon icon-class="user" class="user-icon" />
             <span>{{ userName }}</span>
           </span>
           <el-dropdown-menu slot="dropdown">
@@ -33,11 +36,12 @@
 </template>
 
 <script>
+import BreadCrumb from '@components/BreadCrumb';
 import { mapState, mapMutations } from 'vuex';
 import I18nComp from '@components/I18n';
 
 export default {
-  components: { I18nComp },
+  components: { I18nComp, BreadCrumb },
   data() {
     return {
       userName: 'Admin',
@@ -81,21 +85,28 @@ export default {
 
   .header-title-left {
     display: flex;
+    align-items: center;
 
     .header-title {
       width: 200px;
       text-align: center;
-      color: #fff;
-      font-weight: bold;
+      color: #0960bd;
+      font-weight: 700;
     }
 
     .collapse-icon {
+      padding-left: 5px;
+
       i {
         font-size: 0.225rem;
-        color: #fff;
+        color: #000;
         line-height: 0.6rem;
         cursor: pointer;
       }
+    }
+
+    .bread-crumb-content {
+      margin-left: 15px;
     }
   }
 
@@ -108,9 +119,10 @@ export default {
 
     .header-title-right__item {
       padding: 0 8px;
+      cursor: pointer;
 
       &:hover {
-        background-color: #33383d;
+        background-color: #f6f6f6;
       }
     }
   }
@@ -125,7 +137,6 @@ export default {
     display: flex;
     align-items: center;
     cursor: pointer;
-    color: #fff;
 
     .user-icon {
       margin-right: 12px;
