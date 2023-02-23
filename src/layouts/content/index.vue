@@ -1,6 +1,8 @@
 <template>
   <div class="main-container">
-    <bread-crumb />
+    <div class="tab-page-container">
+      <span>这里是标签页</span>
+    </div>
     <div class="main-content">
       <router-view />
     </div>
@@ -8,12 +10,7 @@
 </template>
 
 <script>
-import BreadCrumb from '@components/BreadCrumb';
-
 export default {
-  components: {
-    BreadCrumb,
-  },
   data() {
     return {};
   },
@@ -29,13 +26,17 @@ export default {
 <style lang="less" scoped>
 .main-container {
   position: relative;
-  margin: 0 0 0.15rem 0.3rem;
-  width: calc(100% - 0.6rem);
-  height: calc(100% - 0.3rem);
+
+  .tab-page-container {
+    padding: 0 5px;
+    height: 0.375rem;
+    text-align: left;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+    line-height: 0.375rem;
+  }
 
   .main-content {
-    width: 100%;
-    height: calc(100% - 0.45rem);
     border-radius: 5px;
   }
 }
