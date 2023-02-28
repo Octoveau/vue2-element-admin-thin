@@ -38,7 +38,7 @@ export default {
       const first = route[0];
 
       if (!this.isDashBoard(first)) {
-        route = [{ path: '/dashboard', meta: { title: 'DashBoard' } }].concat(route);
+        route = [{ path: '/ayalysis', meta: { title: 'Dashboard' } }].concat(route);
       }
 
       this.breadCrumbList = route.filter((item) => item.meta && item.meta.title && item.meta.breadcrumb !== false);

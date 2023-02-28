@@ -7,9 +7,11 @@
       <el-aside>
         <aside-comp />
       </el-aside>
-      <el-main>
-        <content-comp />
-      </el-main>
+      <el-container>
+        <el-main>
+          <content-comp />
+        </el-main>
+      </el-container>
     </el-container>
   </el-container>
 </template>
@@ -40,7 +42,6 @@ export default {
 ::v-deep .el-header {
   height: 0.6rem !important;
   line-height: 0.6rem !important;
-  background-color: #001529;
   border: 0;
 }
 </style>
