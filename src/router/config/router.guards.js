@@ -6,7 +6,7 @@ import refreshTokenFun from '@/utils/refreshToken';
 class RouterGuards {
   constructor(router) {
     this.router = router;
-    this.whiteRouter = ['Login', 'Logout'];
+    this.whiteRouter = ['Login', 'Logout', 'SsoLogin'];
   }
 
   // 初始化调用全部方法
@@ -21,7 +21,7 @@ class RouterGuards {
       const loginFun = () => {
         setTimeout(() => {
           this.router.push({
-            name: 'Login',
+            name: 'SsoLogin',
           });
         }, 600);
       };
@@ -33,17 +33,17 @@ class RouterGuards {
         // 判断是否登录，如果没登录，需要先跳转到登录
         if (!authStorage.getUserInfo()) {
           const { fullPath } = to;
-          return next(`/login?redirecturl=${fullPath}`);
+
+          JSON.parse(authStorage.getIsSsoLoginInfo()) ? next(`/sso-login?redirecturl=${fullPath}`) : next(`/login?redirecturl=${fullPath}`);
+          return;
         }
         // 判断是否需要刷新
-        const result = await refreshTokenFun();
-        if (result) {
-          next();
-        } else {
-          loginFun();
+        if (JSON.parse(authStorage.getIsSsoLoginInfo())) {
+          (await refreshTokenFun()) ? next() : loginFun();
+          return;
         }
+        next();
       }
-      return true;
     });
   }
 

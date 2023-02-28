@@ -1,6 +1,8 @@
 export default {
   menu: {
     dashboard: '首页',
+    ayalysis: '分析页',
+    workplace: '工作台',
     nestmenu: '嵌套菜单',
     menu1: '菜单1',
     'menu1-1': '菜单1-1',

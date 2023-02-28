@@ -2,6 +2,7 @@ import storage from './storage';
 
 const USERINFO_KEY = 'user_info';
 const TOKEN_INFO = 'token_info';
+const IS_SSO_LOGIN = 'isSsoLogin';
 
 class Auth {
   #userInfo = ((e) => {
@@ -50,6 +51,16 @@ class Auth {
 
   removeTokenInfo() {
     storage.removeStorage(TOKEN_INFO);
+  }
+
+  // 写入是否是ssologin的标识
+  setIsSsoLoginInfo(value) {
+    storage.setStorage(IS_SSO_LOGIN, value);
+  }
+
+  // 写入是否是ssologin的标识
+  getIsSsoLoginInfo() {
+    return storage.getStorage(IS_SSO_LOGIN);
   }
 }
 

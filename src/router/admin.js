@@ -3,14 +3,22 @@ const adminRoutes = [
     path: '/',
     name: 'Layout',
     component: () => import('@/layouts'),
-    redirect: '/dashboard',
+    redirect: '/ayalysis',
     children: [
       {
-        path: '/dashboard',
-        name: 'DashBoard',
-        component: () => import('@/views/DashBoard'),
+        path: '/ayalysis',
+        name: 'Ayalysis',
+        component: () => import('@/views/DashBoard/ayalysis'),
         meta: {
-          title: 'DashBoard',
+          title: 'Ayalysis',
+        },
+      },
+      {
+        path: '/workplace',
+        name: 'WorkPlace',
+        component: () => import('@/views/DashBoard/workPlace'),
+        meta: {
+          title: 'WorkPlace',
         },
       },
       {

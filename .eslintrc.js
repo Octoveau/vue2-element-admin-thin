@@ -28,6 +28,7 @@ module.exports = {
     },
   },
   rules: {
+    'no-extra-boolean-cast': 'off',
     'import/no-cycle': 'off',
     'prettier/prettier': ['error'],
     semi: 'error',
@@ -42,6 +43,7 @@ module.exports = {
     'import/extensions': ['error', { vue: 'never' }],
     'vue/multi-word-component-names': 'off',
     'no-unused-expressions': 'off',
+    'no-plusplus': 'off',
     // 特别注意：vue/order-in-components，此规则用于矫正vue文件结构顺序乱写问题
     'vue/order-in-components': [
       'error',
