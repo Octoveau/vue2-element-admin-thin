@@ -4,7 +4,7 @@ const webpack = require('webpack');
 module.exports = {
   mode: 'development',
   entry: {
-    common: ['lodash', 'moment', 'axios'],
+    common: ['lodash', 'moment', 'axios', 'echarts', 'echarts-liquidfill'],
   },
   output: {
     filename: '[name].js', //  产生的文件名字

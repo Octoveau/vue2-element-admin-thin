@@ -2,6 +2,8 @@ export default {
   menu: {
     dashboard: 'Dashboard',
     nestmenu: 'Nest Menu',
+    ayalysis: 'Ayalysis',
+    workplace: 'Work Place',
     menu1: 'Menu1',
     'menu1-1': 'Menu1-1',
     'menu1-1-1': 'Menu1-1-1',

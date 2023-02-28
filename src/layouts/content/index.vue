@@ -5,12 +5,18 @@
     </div>
     <div class="main-content">
       <router-view />
+      <footer-comp />
     </div>
   </div>
 </template>
 
 <script>
+import FooterComp from '../footer';
+
 export default {
+  components: {
+    FooterComp,
+  },
   data() {
     return {};
   },
@@ -37,6 +43,8 @@ export default {
   }
 
   .main-content {
+    overflow: auto;
+    max-height: 10.25rem;
     border-radius: 5px;
   }
 }

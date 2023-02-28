@@ -7,9 +7,11 @@
       <el-aside>
         <aside-comp />
       </el-aside>
-      <el-main>
-        <content-comp />
-      </el-main>
+      <el-container>
+        <el-main>
+          <content-comp />
+        </el-main>
+      </el-container>
     </el-container>
   </el-container>
 </template>
