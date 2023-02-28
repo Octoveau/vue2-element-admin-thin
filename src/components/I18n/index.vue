@@ -6,7 +6,7 @@
 !-->
 <template>
   <div class="i18n-container">
-    <el-dropdown trigger="click" placement="bottom">
+    <el-dropdown placement="bottom">
       <span class="el-dropdown-link">
         <i role="img" class="el-icon-s-comment"></i>
       </span>
@@ -25,7 +25,7 @@ export default {
     return {
       lang: localStorage.getItem('lang') || 'zh',
       langOptions: [
-        { lang: 'zh', label: '中文' },
+        { lang: 'zh', label: '简体中文' },
         { lang: 'en', label: 'English' },
       ],
     };
@@ -48,6 +48,5 @@ export default {
 i {
   font-size: 0.225rem;
   line-height: 0.6rem;
-  color: #fff;
 }
 </style>
