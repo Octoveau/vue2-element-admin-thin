@@ -1,8 +1,9 @@
-# v1.0.2-alpha.3(2023-02-28)
+# v1.0.2-alpha.3(2023-03-01)
 
 ### Feature
 - add workspace page
-- add tab components
+- add ayalysis page
+- add footer component
 - add i18n components and config
 - update headers and breadCrumb
 

@@ -1,8 +1,18 @@
 export const menuList = [
   {
     menu_name: 'dashboard',
-    menu_url: '/dashboard',
+    menu_url: '',
     menu_icon: 'el-icon-s-home',
+    children: [
+      {
+        menu_name: 'ayalysis',
+        menu_url: '/ayalysis',
+      },
+      {
+        menu_name: 'workplace',
+        menu_url: '/workplace',
+      },
+    ],
   },
   {
     menu_name: 'nestmenu',
