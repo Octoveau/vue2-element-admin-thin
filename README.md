@@ -1,6 +1,6 @@
 <h1 style="text-align: center">Vue2 Template Admin</h1>
 
-English | [简体中文](https://github.com/Octoveau/vue2-element-admin-thin/blob/main/README.zh.md)
+English | [简体中文](https://github.com/Octoveau/vue2-element-admin-thin/blob/main/README.zh-CN.md)
 ## Introduction
 
 Vue2 Template Admin as a middle-background template, which is developed with `vue2`, `element-ui` and other related technology stacks.   There are built-in secondary-encapsulates frequently-use components.   Refine and abstract frequently-use modules, reduce the use of `import` and `require`, improve development efficiency
