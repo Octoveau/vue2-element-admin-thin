@@ -1,5 +1,5 @@
 <template>
-  <div class="bread-crumb-container">
+  <div class="ov-layout-breadcrumb" :style="breadcrumbStyle">
     <el-breadcrumb spellcheck="/" class="breadcrumb-inner">
       <transition-group name="breadcrumb">
         <el-breadcrumb-item v-for="(item, index) in breadCrumbList" :key="index">
@@ -17,6 +17,13 @@
 
 <script>
 export default {
+  props: {
+    breadcrumbStyle: {
+      type: Object,
+      default: () => {},
+    },
+  },
+
   data() {
     return {
       breadCrumbList: [],
@@ -62,7 +69,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.bread-crumb-container {
+.ov-layout-breadcrumb {
   padding: 12px 0;
 }
 </style>

@@ -1,9 +1,9 @@
 <template>
-  <div class="main-container">
-    <div class="tab-page-container">
+  <div class="ov-layout-main">
+    <div class="ov-layout-main__tab">
       <span>这里是标签页</span>
     </div>
-    <div class="main-content">
+    <div class="ov-layout-main__content">
       <router-view />
       <footer-comp />
     </div>
@@ -30,10 +30,10 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.main-container {
+.ov-layout-main {
   position: relative;
 
-  .tab-page-container {
+  &__tab {
     padding: 0 5px;
     height: 0.375rem;
     text-align: left;
@@ -42,7 +42,7 @@ export default {
     line-height: 0.375rem;
   }
 
-  .main-content {
+  &__content {
     overflow: auto;
     max-height: 10.25rem;
     border-radius: 5px;

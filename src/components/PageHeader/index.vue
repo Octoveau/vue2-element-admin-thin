@@ -1,5 +1,5 @@
 <template>
-  <div class="page-header-container">
+  <div class="ov-page-header">
     <slot name="content"></slot>
   </div>
 </template>

@@ -1,21 +1,19 @@
 <template>
-  <div class="header-container">
-    <div class="header-title-left">
-      <div class="header-title">
+  <div class="ov-layout-header">
+    <div class="ov-layout-header-body ov-layout-header-left">
+      <div class="ov-layout-header-left__title">
         <span>vue2-admin-template</span>
       </div>
-      <div class="collapse-icon">
+      <div class="ov-layout-header-left__icon">
         <i :class="isCollapse ? 'el-icon-s-unfold' : 'el-icon-s-fold'" @click="handleChangeCollapse"></i>
       </div>
-      <div class="bread-crumb-content">
-        <bread-crumb />
-      </div>
+      <bread-crumb :breadcrumb-style="{ 'margin-left': '15px' }" />
     </div>
-    <div class="header-title-right">
+    <div class="ov-layout-header-body ov-layout-header-action">
       <!-- i18n -->
-      <i18n-comp class="header-title-right__item" />
+      <i18n-comp class="ov-layout-header-action__item i18n-item" />
       <el-divider direction="vertical"></el-divider>
-      <div class="header-logout header-title-right__item">
+      <div class="ov-layout-header-action__item ov-layout-header-action__user-dropdown">
         <el-dropdown>
           <span class="el-dropdown-link">
             <svg-icon icon-class="user" class="user-icon" />
@@ -77,24 +75,26 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-.header-container {
+.ov-layout-header {
   display: flex;
   justify-content: space-between;
   width: 100%;
   height: 100%;
 
-  .header-title-left {
+  &-body {
     display: flex;
     align-items: center;
+  }
 
-    .header-title {
+  &-left {
+    &__title {
       width: 200px;
       text-align: center;
       color: #0960bd;
       font-weight: 700;
     }
 
-    .collapse-icon {
+    &_icon {
       padding-left: 5px;
 
       i {
@@ -104,20 +104,14 @@ export default {
         cursor: pointer;
       }
     }
-
-    .bread-crumb-content {
-      margin-left: 15px;
-    }
   }
 
-  .header-title-right {
-    display: flex;
-
+  &-action {
     /deep/.el-divider {
       align-self: center;
     }
 
-    .header-title-right__item {
+    &__item {
       padding: 0 8px;
       cursor: pointer;
 
@@ -125,12 +119,12 @@ export default {
         background-color: #f6f6f6;
       }
     }
-  }
 
-  .header-logout {
-    display: flex;
-    justify-content: right;
-    align-items: center;
+    &__user-dropdown {
+      display: flex;
+      justify-content: right;
+      align-items: center;
+    }
   }
 
   .el-dropdown-link {
@@ -142,13 +136,5 @@ export default {
       margin-right: 12px;
     }
   }
-
-  .el-col {
-    border: 1px solid transparent;
-  }
-}
-
-.el-dropdown-menu {
-  top: 0.5rem !important;
 }
 </style>

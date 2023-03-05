@@ -1,5 +1,5 @@
 <template>
-  <div class="aside-container">
+  <div class="ov-layout-aside">
     <menu-comp :menu-list="menuData" />
   </div>
 </template>
@@ -29,7 +29,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.aside-container {
+.ov-layout-aside {
   height: 100%;
 
   ::v-deep .el-menu {
