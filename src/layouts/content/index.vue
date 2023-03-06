@@ -43,8 +43,6 @@ export default {
   }
 
   &__content {
-    overflow: auto;
-    max-height: 10.25rem;
     border-radius: 5px;
   }
 }
