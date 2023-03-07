@@ -94,7 +94,7 @@ export default {
       font-weight: 700;
     }
 
-    &_icon {
+    &__icon {
       padding-left: 5px;
 
       i {
