@@ -1,16 +1,20 @@
 <template>
   <el-container direction="vertical">
-    <el-header>
+    <el-header class="layout-header">
       <header-comp />
     </el-header>
-    <el-container>
+    <el-container class="layout-container">
       <el-aside>
         <aside-comp />
       </el-aside>
-      <el-container>
+      <div style="overflow: hidden; width: 200px; min-width: 200px; max-width: 200px; transition: all 0.2s ease 0s; flex: 0 0 200px"></div>
+      <el-container class="layout-main-container">
         <el-main>
           <content-comp />
         </el-main>
+        <el-footer>
+          <footer-comp />
+        </el-footer>
       </el-container>
     </el-container>
   </el-container>
@@ -20,12 +24,14 @@
 import HeaderComp from './header';
 import ContentComp from './content';
 import AsideComp from './aside';
+import FooterComp from './footer';
 
 export default {
   components: {
     HeaderComp,
     ContentComp,
     AsideComp,
+    FooterComp,
   },
   data() {
     return {};
@@ -39,9 +45,29 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-::v-deep .el-header {
+.layout-header {
+  position: fixed;
+  top: 0;
+  z-index: 500;
+  width: 100%;
   height: 0.6rem !important;
-  line-height: 0.6rem !important;
+  background-color: #fff;
   border: 0;
+  line-height: 0.6rem !important;
+}
+
+.layout-container {
+  position: relative;
+  top: 0.6rem;
+
+  .el-aside {
+    position: fixed;
+    z-index: 500;
+    width: 200px;
+    min-width: 200px;
+    max-width: 200px;
+    height: 100%;
+    flex: 0 0 200px;
+  }
 }
 </style>

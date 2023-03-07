@@ -5,17 +5,15 @@
     </div>
     <div class="ov-layout-main__content">
       <router-view />
-      <footer-comp />
+      <!-- <footer-comp /> -->
     </div>
   </div>
 </template>
 
 <script>
-import FooterComp from '../footer';
-
 export default {
   components: {
-    FooterComp,
+    // FooterComp,
   },
   data() {
     return {};
