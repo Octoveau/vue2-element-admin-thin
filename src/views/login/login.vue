@@ -133,7 +133,7 @@ export default {
                 this.$router.push(this.redirectPath);
               } else {
                 this.$router.push({
-                  name: 'DashBoard',
+                  name: 'Ayalysis',
                 });
               }
             } else {

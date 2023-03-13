@@ -56,7 +56,7 @@ export default {
           return;
         }
         this.$router.push({
-          name: 'DashBoard',
+          name: 'Ayalysis',
         });
       });
     },
