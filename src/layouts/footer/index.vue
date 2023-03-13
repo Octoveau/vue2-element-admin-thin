@@ -16,7 +16,6 @@ export default {
 
 <style lang="less" scoped>
 .ov-layout-footer {
-  margin: 0.6rem 0 0.3rem;
   text-align: center;
 
   &__description {

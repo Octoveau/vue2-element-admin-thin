@@ -40,6 +40,7 @@ export default {
           textStyle: {
             color: '#606266',
           },
+          extraCssText: 'z-index: auto',
         },
         grid: {
           top: '15%',

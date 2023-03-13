@@ -5,7 +5,6 @@
     </div>
     <div class="ov-layout-main__content">
       <router-view />
-      <!-- <footer-comp /> -->
     </div>
   </div>
 </template>
@@ -18,8 +17,6 @@ export default {
   data() {
     return {};
   },
-
-  computed: {},
 
   mounted() {},
 

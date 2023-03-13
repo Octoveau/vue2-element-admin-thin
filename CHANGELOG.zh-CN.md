@@ -1,3 +1,12 @@
+# v1.0.2-alpha.4(2023-03-17)
+### Feature
+- 使用BEM规范重构layout整体布局及命名规范
+- 新增全局setting模块
+
+### Bug Fixes
+- 修复layout样式问题
+- 修复分析页问题
+
 # v1.0.2-alpha.3(2023-03-01)
 
 ### Feature

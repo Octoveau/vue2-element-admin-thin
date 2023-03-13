@@ -48,7 +48,7 @@ export default {
 .layout-header {
   position: fixed;
   top: 0;
-  z-index: 500;
+  z-index: 5;
   width: 100%;
   height: 0.6rem !important;
   background-color: #fff;
@@ -62,7 +62,6 @@ export default {
 
   .el-aside {
     position: fixed;
-    z-index: 500;
     width: 200px;
     min-width: 200px;
     max-width: 200px;

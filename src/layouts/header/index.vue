@@ -10,6 +10,9 @@
       <bread-crumb :breadcrumb-style="{ 'margin-left': '15px' }" />
     </div>
     <div class="ov-layout-header-body ov-layout-header-action">
+      <!-- Setting -->
+      <setting-comp class="ov-layout-header-action__item setting-item" />
+      <el-divider direction="vertical"></el-divider>
       <!-- i18n -->
       <i18n-comp class="ov-layout-header-action__item i18n-item" />
       <el-divider direction="vertical"></el-divider>
@@ -37,9 +40,10 @@
 import BreadCrumb from '@components/BreadCrumb';
 import { mapState, mapMutations } from 'vuex';
 import I18nComp from '@components/I18n';
+import SettingComp from '@components/Setting';
 
 export default {
-  components: { I18nComp, BreadCrumb },
+  components: { I18nComp, BreadCrumb, SettingComp },
   data() {
     return {
       userName: 'Admin',
