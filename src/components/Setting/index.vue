@@ -1,20 +1,17 @@
-<!--
-* @description Setting component
-* @fileName index.vue
-* @author zero_fsc
-* @date 2023/03/11 00:05:10
-!-->
 <template>
   <div class="setting-container">
     <i role="img" class="el-icon-setting" @click="handleExplicitDrawer"></i>
-    <el-drawer title="全局配置" :visible.sync="drawer" :modal-append-to-body="false">
-      <span>我来啦!</span>
+    <el-drawer title="全局配置" :visible.sync="drawer" :modal-append-to-body="false" class="setting-body" size="4.125rem">
+      <layoutSetting />
     </el-drawer>
   </div>
 </template>
 
 <script>
+import layoutSetting from './modules/layout';
+
 export default {
+  components: { layoutSetting },
   data() {
     return {
       drawer: false,
@@ -32,4 +29,3 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped></style>
