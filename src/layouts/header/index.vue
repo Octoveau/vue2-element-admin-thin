@@ -7,7 +7,7 @@
       <div class="ov-layout-header-left__icon">
         <i :class="isCollapse ? 'el-icon-s-unfold' : 'el-icon-s-fold'" @click="handleChangeCollapse"></i>
       </div>
-      <bread-crumb :breadcrumb-style="{ 'margin-left': '15px' }" />
+      <bread-crumb v-show="isShowBreadCrumb" :breadcrumb-style="{ 'margin-left': '15px' }" />
     </div>
     <div class="ov-layout-header-body ov-layout-header-action">
       <!-- Setting -->
@@ -52,6 +52,7 @@ export default {
 
   computed: {
     ...mapState('common', ['isCollapse']),
+    ...mapState('setting', ['isShowBreadCrumb']),
   },
 
   mounted() {},

@@ -12,7 +12,7 @@
         <el-main>
           <content-comp />
         </el-main>
-        <el-footer>
+        <el-footer v-show="isShowFooter">
           <footer-comp />
         </el-footer>
       </el-container>
@@ -21,6 +21,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import HeaderComp from './header';
 import ContentComp from './content';
 import AsideComp from './aside';
@@ -37,7 +38,9 @@ export default {
     return {};
   },
 
-  computed: {},
+  computed: {
+    ...mapState('setting', ['isShowFooter']),
+  },
 
   mounted() {},
 
